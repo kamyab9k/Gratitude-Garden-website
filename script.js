@@ -1,18 +1,18 @@
 /* =========================================================
    GRATITUDE GARDEN
-   Scroll animations + waitlist form
+   Scroll animations + waitlist
 ========================================================= */
 
 
 /* =========================================================
-   SCROLL STORY ANIMATION
+   SCROLL ANIMATIONS
 ========================================================= */
 
-const storyStages =
+const stages =
   document.querySelectorAll(".story-stage");
 
 
-const observer =
+const stageObserver =
   new IntersectionObserver(
 
     (entries) => {
@@ -30,31 +30,29 @@ const observer =
     },
 
     {
-      threshold: 0.30
+      threshold: 0.25
     }
 
   );
 
 
-storyStages.forEach((stage) => {
+stages.forEach((stage) => {
 
-  observer.observe(stage);
+  stageObserver.observe(stage);
 
 });
 
 
 
 /* =========================================================
-   WAITLIST FORM
+   WAITLIST
 ========================================================= */
 
 const form =
   document.getElementById("waitlist-form");
 
-
 const successMessage =
   document.getElementById("success-message");
-
 
 const errorMessage =
   document.getElementById("error-message");
@@ -62,7 +60,7 @@ const errorMessage =
 
 form.addEventListener(
   "submit",
-  async function (event) {
+  async (event) => {
 
     event.preventDefault();
 
@@ -71,18 +69,14 @@ form.addEventListener(
       form.querySelector("button");
 
 
-    const originalButtonText =
-      button.innerHTML;
+    const originalText =
+      button.textContent;
 
 
     button.disabled = true;
 
-    button.innerHTML =
+    button.textContent =
       "Joining...";
-
-
-    const formData =
-      new FormData(form);
 
 
     try {
@@ -93,7 +87,8 @@ form.addEventListener(
           {
             method: "POST",
 
-            body: formData,
+            body:
+              new FormData(form),
 
             headers: {
               "Accept":
@@ -103,46 +98,36 @@ form.addEventListener(
         );
 
 
-      if (response.ok) {
-
-
-        form.reset();
-
-
-        successMessage.style.display =
-          "block";
-
-
-        errorMessage.style.display =
-          "none";
-
-
-        button.innerHTML =
-          "You're on the list ♡";
-
-
-      } else {
-
-        throw new Error(
-          "Form submission failed"
-        );
-
+      if (!response.ok) {
+        throw new Error("Failed");
       }
+
+
+      form.reset();
+
+
+      successMessage.style.display =
+        "block";
+
+      errorMessage.style.display =
+        "none";
+
+
+      button.textContent =
+        "Joined ♡";
 
 
     } catch (error) {
 
-
       successMessage.style.display =
         "none";
-
 
       errorMessage.style.display =
         "block";
 
 
-      button.innerHTML =
-        originalButtonText;
+      button.textContent =
+        originalText;
 
     }
 
@@ -152,7 +137,6 @@ form.addEventListener(
       button.disabled = false;
 
     }, 3000);
-
 
   }
 );
