@@ -9,14 +9,14 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Gratitude Garden ♡</title>
+  <title>Gratitude Garden — Grow closer, together.</title>
 
   <meta
     name="description"
-    content="Grow something beautiful together."
+    content="A little garden for the little things that make your relationship beautiful."
   >
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -25,43 +25,68 @@
     rel="stylesheet"
   >
 
+  <!-- Our CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
 
-
-  <!-- ================================
+  <!-- =====================================================
        NAVIGATION
-  ================================= -->
+  ====================================================== -->
 
   <header class="navbar">
 
     <a href="#" class="logo">
-      <span>✿</span>
-      Gratitude Garden
+
+      <span class="logo-flower">✿</span>
+
+      <span>Gratitude Garden</span>
+
     </a>
 
-    <a href="#waitlist" class="nav-button">
-      Join waitlist
-    </a>
+
+    <nav>
+
+      <a href="#story">
+        Our idea
+      </a>
+
+      <a href="#waitlist">
+        Join us
+      </a>
+
+      <a
+        href="#waitlist"
+        class="nav-button"
+      >
+        Join waitlist
+      </a>
+
+    </nav>
 
   </header>
 
 
 
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
   <main>
 
 
-    <!-- ================================
+    <!-- ===================================================
          HERO
-    ================================= -->
+    ==================================================== -->
 
     <section class="hero">
 
 
-      <div class="hero-content">
+      <!-- HERO TEXT -->
+
+      <div class="hero-copy">
 
         <div class="handwritten">
           A little space for us ♡
@@ -69,56 +94,112 @@
 
 
         <h1>
+
           Grow closer,
+
           <br>
-          <em>together.</em>
+
+          one
+
+          <em>gratitude</em>
+
+          <br>
+
+          at a time.
+
         </h1>
 
 
         <p>
-          Turn little moments of gratitude
-          into something beautiful.
+
+          Gratitude Garden is a gentle daily ritual
+          for couples to notice the little things,
+          appreciate each other, and grow something
+          beautiful together.
+
         </p>
 
 
         <a
-          href="#story"
+          href="#waitlist"
           class="primary-button"
         >
-          Discover the garden
-          <span>↓</span>
+
+          Join the waitlist
+
+          <span>♡</span>
+
         </a>
+
+
+        <div class="made-for">
+
+          <span>♥</span>
+
+          Made for couples, with love.
+
+        </div>
 
       </div>
 
 
 
-      <!-- PHONE -->
+      <!-- HERO PHONE -->
 
-      <div class="phone-area">
+      <div class="hero-phone-area">
 
-        <div class="decor-heart heart-1">♡</div>
-        <div class="decor-heart heart-2">♡</div>
-        <div class="decor-star star-1">✦</div>
-        <div class="decor-star star-2">✦</div>
 
+        <div class="floating-heart heart-one">
+          ♡
+        </div>
+
+        <div class="floating-heart heart-two">
+          ♡
+        </div>
+
+
+        <div class="floating-petal petal-one">
+          ✦
+        </div>
+
+        <div class="floating-petal petal-two">
+          ✦
+        </div>
+
+        <div class="floating-petal petal-three">
+          ✦
+        </div>
+
+
+        <!-- PHONE -->
 
         <div class="phone">
 
-          <div class="phone-notch"></div>
+          <div class="phone-speaker"></div>
 
-          <!--
-            YOUR APP SCREENSHOT
 
-            Keep app-screenshot.png in the SAME folder
-            as this index.html file.
-          -->
+          <div class="phone-screen">
 
-          <img
-            src="app-screenshot.png"
-            alt="Gratitude Garden app"
-            class="app-image"
-          >
+            <!--
+              IMPORTANT:
+
+              Your app screenshot should be uploaded
+              directly next to this HTML file.
+
+              Filename:
+
+              app-screenshot.png
+
+              NO assets folder is needed.
+            -->
+
+            <img
+              src="app-screenshot.png"
+              alt="Gratitude Garden app screenshot"
+              class="app-screenshot"
+            >
+
+          </div>
 
         </div>
 
@@ -128,207 +209,225 @@
 
 
 
-    <!-- ================================
-         INTRO
-    ================================= -->
+    <!-- ===================================================
+         STORY INTRO
+    ==================================================== -->
 
     <section
-      class="intro"
+      class="story-intro"
       id="story"
     >
 
       <div class="eyebrow">
-        GRATITUDE GARDEN
+        THE IDEA
       </div>
 
+
       <h2>
-        Small things.
+
+        It starts with
+
         <br>
-        <em>Big love.</em>
+
+        something
+
+        <em>small.</em>
+
       </h2>
 
+
       <p>
-        Plant a thought.
-        Watch it grow.
+
+        A kind word. A thoughtful gesture.
+        A moment you don't want to forget.
+
+        <br>
+
+        What if those little moments could
+        grow into something you could see?
+
       </p>
 
     </section>
 
 
 
-    <!-- ================================
-         STAGE 1 — SEED
-    ================================= -->
+    <!-- ===================================================
+         GARDEN STORY
+    ==================================================== -->
 
-    <section
-      class="story-stage"
-      data-stage="seed"
-    >
+    <section class="garden-story">
 
 
-      <div class="visual">
+      <!-- =================================================
+           STAGE 1 — SEED
+      ================================================== -->
 
-        <div class="soft-glow"></div>
+      <div
+        class="story-stage stage-seed"
+        data-stage="seed"
+      >
 
 
-        <div class="soil">
+        <!-- VISUAL -->
 
-          <div class="seed">
+        <div class="stage-visual">
 
-            <div class="seed-body"></div>
+          <div class="stage-glow"></div>
 
-            <div class="seed-root"></div>
+
+          <div class="soil">
+
+            <div class="seed">
+
+              <div class="seed-body"></div>
+
+              <div class="seed-root"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="stage-particles">
+
+            <span>✦</span>
+            <span>·</span>
+            <span>✦</span>
+            <span>·</span>
 
           </div>
 
         </div>
 
 
-        <div class="sparkles">
-          <span>✦</span>
-          <span>·</span>
-          <span>✦</span>
+
+        <!-- TEXT -->
+
+        <div class="stage-copy">
+
+          <div class="stage-number">
+            01
+          </div>
+
+          <div class="stage-label">
+            PLANT A SEED
+          </div>
+
+
+          <h2>
+
+            Start with
+
+            <em>gratitude.</em>
+
+          </h2>
+
+
+          <p>
+
+            Tell your partner something you appreciate.
+
+            <br><br>
+
+            Maybe it's:
+
+            <span class="example">
+              "Thank you for always making
+              me laugh when I need it most."
+            </span>
+
+            Every little thank-you becomes
+            a seed in your shared garden.
+
+          </p>
+
+
+          <div class="stage-caption">
+            One kind thought can be the beginning
+            of something beautiful.
+          </div>
+
         </div>
 
       </div>
 
 
 
-      <div class="story-copy">
+      <!-- =================================================
+           STAGE 2 — WATER
+      ================================================== -->
 
-        <div class="stage-number">
-          01
-        </div>
-
-        <div class="stage-label">
-          PLANT
-        </div>
-
-        <h2>
-          A little
-          <br>
-          <em>gratitude.</em>
-        </h2>
-
-        <p>
-          “Thank you for being you.”
-        </p>
-
-      </div>
-
-    </section>
+      <div
+        class="story-stage stage-water"
+        data-stage="water"
+      >
 
 
+        <!-- TEXT -->
 
-    <!-- ================================
-         STAGE 2 — WATER
-    ================================= -->
+        <div class="stage-copy">
 
-    <section
-      class="story-stage reverse"
-      data-stage="water"
-    >
+          <div class="stage-number">
+            02
+          </div>
 
-
-      <div class="visual watering-visual">
-
-        <div class="water-glow"></div>
+          <div class="stage-label">
+            NURTURE IT
+          </div>
 
 
-        <div class="watering-can">
+          <h2>
 
-          <div class="can-handle"></div>
+            Keep showing
 
-          <div class="can-body"></div>
+            <em>up.</em>
 
-          <div class="can-spout"></div>
-
-        </div>
+          </h2>
 
 
-        <div class="drops">
+          <p>
 
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+            Relationships grow when we pay attention
+            to the good things.
+
+            <br><br>
+
+            A few seconds of gratitude each day
+            becomes a little ritual — something
+            you share, together.
+
+          </p>
+
+
+          <div class="stage-caption">
+            Water the things you want to grow.
+          </div>
 
         </div>
 
 
-        <div class="sprout">
 
-          <div class="sprout-stem"></div>
+        <!-- WATERING VISUAL -->
 
-          <div class="sprout-leaf leaf-a"></div>
+        <div class="stage-visual watering-visual">
 
-          <div class="sprout-leaf leaf-b"></div>
-
-        </div>
+          <div class="water-glow"></div>
 
 
-        <div class="small-soil"></div>
+          <div class="watering-can">
 
-      </div>
+            <div class="can-body"></div>
 
+            <div class="can-handle"></div>
 
+            <div class="can-spout"></div>
 
-      <div class="story-copy">
-
-        <div class="stage-number">
-          02
-        </div>
-
-        <div class="stage-label">
-          NURTURE
-        </div>
-
-        <h2>
-          Keep
-          <br>
-          <em>watering.</em>
-        </h2>
-
-        <p>
-          A little love, every day.
-        </p>
-
-      </div>
-
-    </section>
+          </div>
 
 
+          <div class="water-drops">
 
-    <!-- ================================
-         STAGE 3 — BLOOM
-    ================================= -->
-
-    <section
-      class="story-stage"
-      data-stage="bloom"
-    >
-
-
-      <div class="visual flower-visual">
-
-        <div class="bloom-glow"></div>
-
-
-        <div class="flower">
-
-
-          <div class="flower-stem"></div>
-
-
-          <div class="flower-leaf leaf-left"></div>
-
-          <div class="flower-leaf leaf-right"></div>
-
-
-          <div class="petals">
-
-            <span></span>
             <span></span>
             <span></span>
             <span></span>
@@ -338,20 +437,18 @@
           </div>
 
 
-          <div class="flower-center">
-            ♥
+          <div class="small-sprout">
+
+            <div class="sprout-stem"></div>
+
+            <div class="sprout-leaf left"></div>
+
+            <div class="sprout-leaf right"></div>
+
           </div>
 
 
-        </div>
-
-
-        <div class="bloom-particles">
-
-          <span>✦</span>
-          <span>♡</span>
-          <span>✦</span>
-          <span>·</span>
+          <div class="soil small-soil"></div>
 
         </div>
 
@@ -359,61 +456,179 @@
 
 
 
-      <div class="story-copy">
+      <!-- =================================================
+           STAGE 3 — FLOWER
+      ================================================== -->
 
-        <div class="stage-number">
-          03
+      <div
+        class="story-stage stage-flower"
+        data-stage="flower"
+      >
+
+
+        <!-- VISUAL -->
+
+        <div class="stage-visual flower-visual">
+
+          <div class="bloom-glow"></div>
+
+
+          <div class="flower-garden">
+
+            <div class="flower-stem"></div>
+
+
+            <div class="flower-leaf leaf-left"></div>
+
+            <div class="flower-leaf leaf-right"></div>
+
+
+            <div class="flower-bloom">
+
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+
+            </div>
+
+
+            <div class="flower-center">
+              ♥
+            </div>
+
+
+            <div class="grass grass-one"></div>
+
+            <div class="grass grass-two"></div>
+
+            <div class="grass grass-three"></div>
+
+          </div>
+
+
+          <div class="bloom-particles">
+
+            <span>✦</span>
+            <span>✦</span>
+            <span>·</span>
+            <span>♡</span>
+            <span>✦</span>
+
+          </div>
+
         </div>
 
-        <div class="stage-label">
-          BLOOM
+
+
+        <!-- TEXT -->
+
+        <div class="stage-copy">
+
+          <div class="stage-number">
+            03
+          </div>
+
+          <div class="stage-label">
+            WATCH IT BLOOM
+          </div>
+
+
+          <h2>
+
+            Beautiful things
+
+            <br>
+
+            <em>grow here.</em>
+
+          </h2>
+
+
+          <p>
+
+            Every gratitude becomes part of
+            your shared garden.
+
+            <br><br>
+
+            Over time, you don't just have a collection
+            of kind words.
+
+            <br><br>
+
+            You have a little reminder of
+            everything you love about each other.
+
+          </p>
+
+
+          <div class="stage-caption">
+            Grow something good together.
+          </div>
+
         </div>
-
-        <h2>
-          Love
-          <br>
-          <em>grows.</em>
-        </h2>
-
-        <p>
-          Together, one day at a time.
-        </p>
 
       </div>
+
 
     </section>
 
 
 
-    <!-- ================================
+    <!-- ===================================================
          WAITLIST
-    ================================= -->
+    ==================================================== -->
 
     <section
       class="waitlist"
       id="waitlist"
     >
 
-      <div class="waitlist-box">
+      <div class="waitlist-inner">
 
-        <div class="eyebrow">
-          COMING SOON
+
+        <div class="waitlist-text">
+
+          <div class="eyebrow">
+            COMING SOON
+          </div>
+
+
+          <h2>
+
+            Your garden
+
+            <br>
+
+            is <em>waiting.</em>
+
+          </h2>
+
+
+          <p>
+
+            Be one of the first couples to
+            grow with Gratitude Garden.
+
+          </p>
+
         </div>
 
-        <h2>
-          Grow with us.
-        </h2>
-
-        <p>
-          Be first to enter the garden.
-        </p>
 
 
         <!--
-          FORMSpree
+          =================================================
+          FORMSPREE
 
-          Replace YOUR_FORMSPREE_ENDPOINT
-          with your real Formspree URL.
+          Replace:
+
+          YOUR_FORMSPREE_ENDPOINT
+
+          with your actual Formspree endpoint.
+          =================================================
         -->
 
         <form
@@ -422,18 +637,23 @@
           method="POST"
         >
 
-          <div class="email-row">
+          <div class="email-form">
 
             <input
               type="email"
               name="email"
-              placeholder="Your email"
+              placeholder="Your email address"
               autocomplete="email"
               required
             >
 
+
             <button type="submit">
-              Join ♡
+
+              Join waitlist
+
+              <span>♡</span>
+
             </button>
 
           </div>
@@ -442,29 +662,29 @@
           <input
             type="hidden"
             name="subject"
-            value="New Gratitude Garden signup"
+            value="New Gratitude Garden waitlist signup"
           >
 
 
-          <div class="form-note">
-            No spam. Just a little love.
-          </div>
+          <p class="privacy">
+            🔒 No spam. Just updates when we're ready to bloom.
+          </p>
 
 
-          <div
+          <p
             id="success-message"
             class="success-message"
           >
-            🌱 You're on the list.
-          </div>
+            🌱 You're on the list. See you in the garden.
+          </p>
 
 
-          <div
+          <p
             id="error-message"
             class="error-message"
           >
-            Something went wrong. Try again.
-          </div>
+            Something went wrong. Please try again.
+          </p>
 
         </form>
 
@@ -474,86 +694,126 @@
 
 
 
-    <!-- ================================
+    <!-- ===================================================
          CREATOR
-    ================================= -->
+    ==================================================== -->
 
     <section class="creator">
 
 
-      <!--
-        YOUR PROFILE PHOTO
+      <div class="creator-inner">
 
-        Put profile.jpg in the SAME folder
-        as index.html.
-      -->
 
-      <div class="profile-container">
+        <!--
+          =================================================
+          YOUR PROFILE PHOTO
 
-        <img
-          src="profile.jpg"
-          alt="Kamyab Khosravi"
-          class="profile-image"
+          Upload:
+
+          profile.jpg
+
+          directly next to index.html.
+
+          No assets folder required.
+        ==================================================
+        -->
+
+        <div class="creator-photo-wrap">
+
+          <img
+            src="profile.jpg"
+            alt="Kamyab Khosravi"
+            class="creator-photo"
+          >
+
+        </div>
+
+
+        <div class="creator-eyebrow">
+          THE PERSON BEHIND THE GARDEN
+        </div>
+
+
+        <h2>
+          Made with love.
+        </h2>
+
+
+        <p class="creator-role">
+          Creator of the app
+        </p>
+
+
+        <h3>
+          Kamyab Khosravi
+        </h3>
+
+
+        <!--
+          =================================================
+          CHANGE YOUR EMAIL HERE
+
+          Replace BOTH occurrences of:
+
+          YOUR_EMAIL@example.com
+        ==================================================
+        -->
+
+        <a
+          href="mailto:YOUR_EMAIL@example.com"
+          class="creator-email"
         >
+          YOUR_EMAIL@example.com
+        </a>
+
+
+        <p class="creator-message">
+
+          Built from a simple idea:
+
+          <br>
+
+          when we notice the good things,
+          they tend to grow.
+
+        </p>
 
       </div>
-
-
-      <div class="eyebrow">
-        CREATOR
-      </div>
-
-
-      <h2>
-        Kamyab Khosravi
-      </h2>
-
-
-      <p class="creator-title">
-        Creator of the app
-      </p>
-
-
-      <!--
-        CHANGE THIS EMAIL
-      -->
-
-      <a
-        href="mailto:YOUR_EMAIL@example.com"
-        class="email-link"
-      >
-        YOUR_EMAIL@example.com
-      </a>
-
-
-      <p class="creator-line">
-        Made with love ♡
-      </p>
 
     </section>
-
 
   </main>
 
 
 
-  <!-- ================================
+  <!-- =====================================================
        FOOTER
-  ================================= -->
+  ====================================================== -->
 
   <footer>
 
-    <div>
-      ✿ Gratitude Garden
+    <div class="footer-logo">
+
+      <span>✿</span>
+
+      Gratitude Garden
+
     </div>
 
+
+    <p>
+      Grow something good together.
+    </p>
+
+
     <small>
-      Grow something good together. ♡
+      © 2026 Gratitude Garden · Made with love ♡
     </small>
 
   </footer>
 
 
+  <!-- Our JavaScript -->
   <script src="script.js"></script>
 
 </body>
