@@ -14,7 +14,7 @@
 
   <meta
     name="description"
-    content="A little space for couples to appreciate each other, grow together, and celebrate the small things."
+    content="A quiet daily ritual for couples to notice, appreciate and grow closer — one small gratitude at a time."
   >
 
   <!-- Google Fonts -->
@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;600&display=swap"
     rel="stylesheet"
   >
 
@@ -41,11 +41,11 @@
   <header class="navbar">
 
     <a href="#" class="brand">
-
-      <span class="brand-flower">✿</span>
-
+      <svg class="brand-mark" width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C11 2 6 6.5 6 11C6 13.7614 8.23858 16 11 16C13.7614 16 16 13.7614 16 11C16 6.5 11 2 11 2Z" fill="#DB8188"/>
+        <path d="M11 16V20" stroke="#8A9C74" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
       <span>Gratitude Garden</span>
-
     </a>
 
 
@@ -75,13 +75,15 @@
 
     <section class="hero">
 
+      <!-- dappled light overlay -->
+      <div class="light-overlay" aria-hidden="true"></div>
 
       <!-- LEFT SIDE -->
 
       <div class="hero-content">
 
         <div class="handwritten">
-          A little space for us ♡
+          a little space for us
         </div>
 
 
@@ -103,27 +105,28 @@
 
         <p class="hero-text">
 
-          Gratitude Garden is a gentle daily ritual
-          for couples to notice, appreciate, and
-          celebrate each other.
+          Gratitude Garden is a gentle daily ritual for couples —
+          notice the small things, say them out loud, and watch
+          your garden fill up together.
 
         </p>
 
 
-        <a href="#waitlist" class="hero-button">
+        <div class="hero-actions">
 
-          Join the waitlist
+          <a href="#waitlist" class="hero-button">
+            Join the waitlist
+            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
+              <path d="M1 6.5H13.5M13.5 6.5L8.5 1M13.5 6.5L8.5 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
 
-          <span>♡</span>
-
-        </a>
-
-
-        <div class="hero-note">
-
-          <span>♥</span>
-
-          Made for couples, with love.
+          <div class="hero-social-proof">
+            <div class="avatar-stack">
+              <span></span><span></span><span></span>
+            </div>
+            <p>Early access to <strong>200+ couples</strong></p>
+          </div>
 
         </div>
 
@@ -135,187 +138,133 @@
 
       <div class="hero-visual">
 
-
-        <div class="petal petal-1">✦</div>
-
-        <div class="petal petal-2">✦</div>
-
-        <div class="petal petal-3">✦</div>
-
-        <div class="petal petal-4">✦</div>
-
-
-        <!-- Heart doodle -->
-
-        <div class="heart-doodle">
-          ♡
-        </div>
-
+        <div class="heart-doodle">for you ♡</div>
 
         <!-- PHONE -->
 
         <div class="phone">
 
+          <div class="phone-notch"></div>
+
           <div class="phone-screen">
 
-
             <div class="phone-top">
-
               <span>9:41</span>
-
-              <span>● ● ●</span>
-
+              <span class="signal-dots">●●●</span>
             </div>
-
 
             <div class="app-header">
-
-              <span>‹</span>
-
+              <span class="app-back">‹</span>
               <strong>Our Garden</strong>
-
-              <span>⌁</span>
-
+              <span class="app-menu">⋯</span>
             </div>
 
+            <!-- Garden illustration (SVG) -->
+            <svg class="app-garden" viewBox="0 0 240 380" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
 
-            <!-- Garden illustration -->
+              <defs>
+                <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FBE7E0"/>
+                  <stop offset="45%" stop-color="#F3E4D6"/>
+                  <stop offset="75%" stop-color="#D9E3C8"/>
+                  <stop offset="100%" stop-color="#A9C293"/>
+                </linearGradient>
+                <radialGradient id="treeGrad" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#FFE3E3"/>
+                  <stop offset="55%" stop-color="#F2B4B8"/>
+                  <stop offset="100%" stop-color="#DE9BA0"/>
+                </radialGradient>
+              </defs>
 
-            <div class="app-garden">
+              <rect x="0" y="0" width="240" height="380" fill="url(#skyGrad)"/>
 
+              <!-- winding path -->
+              <path d="M120 60 C 70 110, 165 150, 95 200 C 45 240, 150 270, 110 320 C 90 345, 120 360, 120 380"
+                    fill="none" stroke="#D9BC9E" stroke-width="18" stroke-linecap="round" opacity="0.9"/>
+              <path d="M120 60 C 70 110, 165 150, 95 200 C 45 240, 150 270, 110 320 C 90 345, 120 360, 120 380"
+                    fill="none" stroke="#C9A987" stroke-width="18" stroke-linecap="round"
+                    stroke-dasharray="1 15" opacity="0.5"/>
 
-              <div class="garden-sky"></div>
+              <!-- tree -->
+              <rect x="112" y="55" width="10" height="42" rx="4" fill="#7C5B47"/>
+              <circle cx="117" cy="42" r="40" fill="url(#treeGrad)"/>
+              <circle cx="95" cy="55" r="16" fill="#F6C9CC" opacity="0.85"/>
+              <circle cx="142" cy="58" r="14" fill="#F6C9CC" opacity="0.85"/>
 
+              <!-- scattered flowers -->
+              <g fill="#E58E98">
+                <circle cx="42" cy="150" r="3.5"/>
+                <circle cx="35" cy="150" r="3"/>
+                <circle cx="49" cy="150" r="3"/>
+                <circle cx="42" cy="143" r="3"/>
+                <circle cx="42" cy="157" r="3"/>
+              </g>
+              <g fill="#EFC66B">
+                <circle cx="196" cy="230" r="3.2"/>
+                <circle cx="190" cy="230" r="2.6"/>
+                <circle cx="202" cy="230" r="2.6"/>
+                <circle cx="196" cy="224" r="2.6"/>
+                <circle cx="196" cy="236" r="2.6"/>
+              </g>
+              <g fill="#F0A7AE">
+                <circle cx="55" cy="280" r="3"/>
+                <circle cx="50" cy="280" r="2.4"/>
+                <circle cx="60" cy="280" r="2.4"/>
+                <circle cx="55" cy="275" r="2.4"/>
+                <circle cx="55" cy="285" r="2.4"/>
+              </g>
 
-              <div class="garden-tree">
+              <!-- gratitude note cards -->
+              <g>
+                <rect x="18" y="118" width="82" height="34" rx="9" fill="#FFFAF6" opacity="0.97"/>
+                <text x="59" y="133" text-anchor="middle" font-family="DM Sans" font-size="8.5" font-weight="600" fill="#4A413A">Thank you for</text>
+                <text x="59" y="144" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D27980">the coffee ♡</text>
+              </g>
 
-                <div class="tree-top"></div>
+              <g>
+                <rect x="150" y="172" width="82" height="34" rx="9" fill="#FFFAF6" opacity="0.97"/>
+                <text x="191" y="187" text-anchor="middle" font-family="DM Sans" font-size="8.5" font-weight="600" fill="#4A413A">You made me</text>
+                <text x="191" y="198" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D27980">smile today ♡</text>
+              </g>
 
-                <div class="tree-trunk"></div>
+              <g>
+                <rect x="14" y="235" width="82" height="34" rx="9" fill="#FFFAF6" opacity="0.97"/>
+                <text x="55" y="250" text-anchor="middle" font-family="DM Sans" font-size="8.5" font-weight="600" fill="#4A413A">I love our</text>
+                <text x="55" y="261" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D27980">little life ♡</text>
+              </g>
 
-              </div>
+              <g>
+                <rect x="140" y="290" width="82" height="34" rx="9" fill="#FFFAF6" opacity="0.97"/>
+                <text x="181" y="305" text-anchor="middle" font-family="DM Sans" font-size="8.5" font-weight="600" fill="#4A413A">Our little</text>
+                <text x="181" y="316" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#D27980">adventures ♡</text>
+              </g>
 
+            </svg>
 
-              <div class="garden-path"></div>
-
-
-              <div class="garden-flower flower-a"></div>
-
-              <div class="garden-flower flower-b"></div>
-
-              <div class="garden-flower flower-c"></div>
-
-              <div class="garden-flower flower-d"></div>
-
-
-              <!-- Gratitude notes -->
-
-              <div class="garden-note note-a">
-
-                <strong>
-                  Thank you for
-                </strong>
-
-                <small>
-                  the coffee ♡
-                </small>
-
-              </div>
-
-
-              <div class="garden-note note-b">
-
-                <strong>
-                  You make
-                </strong>
-
-                <small>
-                  every day better ♡
-                </small>
-
-              </div>
-
-
-              <div class="garden-note note-c">
-
-                <strong>
-                  I love our
-                </strong>
-
-                <small>
-                  little life ♡
-                </small>
-
-              </div>
-
-
-              <div class="garden-note note-d">
-
-                <strong>
-                  You made me
-                </strong>
-
-                <small>
-                  smile today ♡
-                </small>
-
-              </div>
-
-
-              <!-- Add button -->
-
-              <div class="garden-add">
-                +
-              </div>
-
-            </div>
-
-
-            <!-- App navigation -->
+            <div class="garden-add">+</div>
 
             <div class="app-nav">
-
               <div class="active">
-
-                <span>✿</span>
-
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C8 1 3.5 5 3.5 9C3.5 11.4853 5.51472 13.5 8 13.5C10.4853 13.5 12.5 11.4853 12.5 9C12.5 5 8 1 8 1Z" fill="currentColor"/></svg>
                 <small>Garden</small>
-
               </div>
-
-
               <div>
-
-                <span>♡</span>
-
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.5s-5.5-3.4-5.5-7.2C2.5 4 4.1 2.5 6 2.5c.9 0 1.7.4 2 1 .3-.6 1.1-1 2-1 1.9 0 3.5 1.5 3.5 3.3 0 3.8-5.5 7.2-5.5 7.2z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
                 <small>Notes</small>
-
               </div>
-
-
               <div>
-
-                <span>♧</span>
-
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="6" r="2.6" stroke="currentColor" stroke-width="1.1"/><circle cx="11" cy="6" r="2.6" stroke="currentColor" stroke-width="1.1"/></svg>
                 <small>Us</small>
-
               </div>
-
-
               <div>
-
-                <span>♙</span>
-
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5.4" r="2.6" stroke="currentColor" stroke-width="1.1"/><path d="M3 14c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke="currentColor" stroke-width="1.1"/></svg>
                 <small>Profile</small>
-
               </div>
-
             </div>
 
           </div>
 
         </div>
-
 
       </div>
 
@@ -331,9 +280,7 @@
 
       <div class="section-intro">
 
-        <div class="eyebrow">
-          THE IDEA
-        </div>
+        <div class="eyebrow">The idea</div>
 
         <h2>
 
@@ -347,11 +294,19 @@
 
         <p>
 
-          Relationships grow in the small moments —
-          the coffee made without asking, the hug after
-          a long day, the silly message that made you smile.
+          Relationships grow in small moments — the coffee made without
+          asking, the hug after a long day, the message that made you
+          smile at your desk. We forget most of them by dinner. Gratitude
+          Garden is a place to keep them.
 
         </p>
+
+        <div class="divider" aria-hidden="true">
+          <svg width="17" height="20" viewBox="0 0 17 20" fill="none">
+            <path d="M8.5 20V9" stroke="#8FA37E" stroke-width="1.3"/>
+            <path d="M8.5 12C8.5 12 3 11 3 6C3 2.5 6 1 8.5 3C11 1 14 2.5 14 6C14 11 8.5 12 8.5 12Z" fill="#DB8188"/>
+          </svg>
+        </div>
 
       </div>
 
@@ -365,66 +320,71 @@
 
     <section class="features" id="how-it-works">
 
+      <div class="features-intro">
+        <div class="eyebrow">How it works</div>
+        <h2>Three small habits.<br><em>One closer couple.</em></h2>
+      </div>
 
-      <article class="feature">
+      <div class="feature-grid">
 
-        <div class="feature-icon">
-          ♡
-        </div>
+        <article class="feature">
 
-        <h3>
-          Share gratitude
-        </h3>
+          <div class="feature-icon">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none">
+              <path d="M13 23C13 23 2 15.6 2 8.1C2 4.2 5 1.5 8.4 1.5C10.4 1.5 12.1 2.5 13 4C13.9 2.5 15.6 1.5 17.6 1.5C21 1.5 24 4.2 24 8.1C24 15.6 13 23 13 23Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+          </div>
 
-        <p>
+          <h3>Plant a gratitude</h3>
 
-          Leave little notes about the things
-          you appreciate in your partner.
+          <p>
+            Write a quick note about something your partner did —
+            it takes ten seconds and means everything.
+          </p>
 
-        </p>
-
-      </article>
-
-
-      <article class="feature">
-
-        <div class="feature-icon">
-          ✿
-        </div>
-
-        <h3>
-          Grow together
-        </h3>
-
-        <p>
-
-          Every kind word becomes part of a
-          garden you create together.
-
-        </p>
-
-      </article>
+        </article>
 
 
-      <article class="feature">
+        <article class="feature">
 
-        <div class="feature-icon">
-          ♧
-        </div>
+          <div class="feature-icon">
+            <svg width="24" height="26" viewBox="0 0 24 26" fill="none">
+              <path d="M12 25V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M12 14C12 14 3 12.5 3 5.5C3 2.5 6.5 1 9 3C10 4 10.5 5.5 10.5 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M12 11C12 11 21 9.5 21 3.5C21 1.5 18 0.3 15.5 2C14.3 2.8 13.8 4 13.8 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
 
-        <h3>
-          Feel closer
-        </h3>
+          <h3>Watch it grow</h3>
 
-        <p>
+          <p>
+            Every note becomes a flower in a garden you tend together —
+            a living record of your relationship.
+          </p>
 
-          Turn appreciation into a tiny daily
-          ritual that brings you closer.
+        </article>
 
-        </p>
 
-      </article>
+        <article class="feature">
 
+          <div class="feature-icon">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none">
+              <circle cx="9" cy="8" r="4.3" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="17" cy="8" r="4.3" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M2 22c0-4.4 3.6-7 7-7 1.4 0 2.7.4 3.8 1.2M24 22c0-4.4-3.6-7-7-7-1.4 0-2.7.4-3.8 1.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <h3>Feel closer, daily</h3>
+
+          <p>
+            A gentle reminder each evening turns appreciation into a
+            habit — and habits into a stronger us.
+          </p>
+
+        </article>
+
+      </div>
 
     </section>
 
@@ -439,9 +399,7 @@
 
       <div class="waitlist-copy">
 
-        <div class="eyebrow">
-          COMING SOON
-        </div>
+        <div class="eyebrow">Coming soon</div>
 
         <h2>
 
@@ -455,8 +413,8 @@
 
         <p>
 
-          Join the waitlist and we'll let you know
-          when your garden is ready.
+          Join the waitlist and we'll let you know the moment your
+          garden is ready to plant.
 
         </p>
 
@@ -485,11 +443,7 @@
           >
 
           <button type="submit">
-
             Join waitlist
-
-            <span>♡</span>
-
           </button>
 
         </div>
@@ -500,15 +454,12 @@
         <input
           type="hidden"
           name="subject"
-          value="New Gratitude Garden waitlist signup 🌱"
+          value="New Gratitude Garden waitlist signup"
         >
 
 
         <p class="privacy">
-
-          🔒 No spam. Just updates we think
-          you'll love.
-
+          No spam, ever. Just one email when we're ready for you.
         </p>
 
 
@@ -516,10 +467,7 @@
           id="success-message"
           class="success-message"
         >
-
-          🌱 You're on the list.
-          We'll see you in the garden.
-
+          You're on the list — we'll see you in the garden.
         </p>
 
 
@@ -527,10 +475,7 @@
           id="error-message"
           class="error-message"
         >
-
-          Something went wrong.
-          Please try again.
-
+          Something went wrong. Please try again.
         </p>
 
       </form>
@@ -550,11 +495,10 @@
   <footer>
 
     <div class="footer-brand">
-
-      <span>✿</span>
-
+      <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+        <path d="M11 2C11 2 6 6.5 6 11C6 13.7614 8.23858 16 11 16C13.7614 16 16 13.7614 16 11C16 6.5 11 2 11 2Z" fill="#DB8188"/>
+      </svg>
       Gratitude Garden
-
     </div>
 
 
@@ -564,7 +508,7 @@
 
 
     <small>
-      © 2026 Gratitude Garden · Made with love ♡
+      © 2026 Gratitude Garden · Made with love
     </small>
 
   </footer>
