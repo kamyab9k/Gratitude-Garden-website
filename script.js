@@ -5,14 +5,14 @@
 
 
 /* =========================================================
-   SCROLL ANIMATIONS
+   SCROLL STORY
 ========================================================= */
 
-const stages =
+const storyStages =
   document.querySelectorAll(".story-stage");
 
 
-const stageObserver =
+const observer =
   new IntersectionObserver(
 
     (entries) => {
@@ -30,29 +30,31 @@ const stageObserver =
     },
 
     {
-      threshold: 0.25
+      threshold: 0.30
     }
 
   );
 
 
-stages.forEach((stage) => {
+storyStages.forEach((stage) => {
 
-  stageObserver.observe(stage);
+  observer.observe(stage);
 
 });
 
 
 
 /* =========================================================
-   WAITLIST
+   WAITLIST FORM
 ========================================================= */
 
 const form =
   document.getElementById("waitlist-form");
 
+
 const successMessage =
   document.getElementById("success-message");
+
 
 const errorMessage =
   document.getElementById("error-message");
@@ -60,7 +62,7 @@ const errorMessage =
 
 form.addEventListener(
   "submit",
-  async (event) => {
+  async function (event) {
 
     event.preventDefault();
 
@@ -69,14 +71,18 @@ form.addEventListener(
       form.querySelector("button");
 
 
-    const originalText =
-      button.textContent;
+    const originalButtonText =
+      button.innerHTML;
 
 
     button.disabled = true;
 
-    button.textContent =
+    button.innerHTML =
       "Joining...";
+
+
+    const formData =
+      new FormData(form);
 
 
     try {
@@ -87,8 +93,7 @@ form.addEventListener(
           {
             method: "POST",
 
-            body:
-              new FormData(form),
+            body: formData,
 
             headers: {
               "Accept":
@@ -98,23 +103,30 @@ form.addEventListener(
         );
 
 
-      if (!response.ok) {
-        throw new Error("Failed");
+      if (response.ok) {
+
+        form.reset();
+
+
+        successMessage.style.display =
+          "block";
+
+
+        errorMessage.style.display =
+          "none";
+
+
+        button.innerHTML =
+          "You're on the list ♡";
+
+
+      } else {
+
+        throw new Error(
+          "Form submission failed"
+        );
+
       }
-
-
-      form.reset();
-
-
-      successMessage.style.display =
-        "block";
-
-      errorMessage.style.display =
-        "none";
-
-
-      button.textContent =
-        "Joined ♡";
 
 
     } catch (error) {
@@ -122,12 +134,13 @@ form.addEventListener(
       successMessage.style.display =
         "none";
 
+
       errorMessage.style.display =
         "block";
 
 
-      button.textContent =
-        originalText;
+      button.innerHTML =
+        originalButtonText;
 
     }
 
