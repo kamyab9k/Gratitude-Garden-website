@@ -5,7 +5,7 @@
 
 
 /* =========================================================
-   SCROLL STORY
+   SCROLL STORY ANIMATION
 ========================================================= */
 
 const storyStages =
@@ -21,7 +21,9 @@ const observer =
 
         if (entry.isIntersecting) {
 
-          entry.target.classList.add("visible");
+          entry.target.classList.add(
+            "visible"
+          );
 
         }
 
@@ -49,15 +51,21 @@ storyStages.forEach((stage) => {
 ========================================================= */
 
 const form =
-  document.getElementById("waitlist-form");
+  document.getElementById(
+    "waitlist-form"
+  );
 
 
 const successMessage =
-  document.getElementById("success-message");
+  document.getElementById(
+    "success-message"
+  );
 
 
 const errorMessage =
-  document.getElementById("error-message");
+  document.getElementById(
+    "error-message"
+  );
 
 
 form.addEventListener(
@@ -89,7 +97,9 @@ form.addEventListener(
 
       const response =
         await fetch(
+
           form.action,
+
           {
             method: "POST",
 
@@ -100,27 +110,11 @@ form.addEventListener(
                 "application/json"
             }
           }
+
         );
 
 
-      if (response.ok) {
-
-        form.reset();
-
-
-        successMessage.style.display =
-          "block";
-
-
-        errorMessage.style.display =
-          "none";
-
-
-        button.innerHTML =
-          "You're on the list ♡";
-
-
-      } else {
+      if (!response.ok) {
 
         throw new Error(
           "Form submission failed"
@@ -129,7 +123,27 @@ form.addEventListener(
       }
 
 
+      /* Success */
+
+      form.reset();
+
+
+      successMessage.style.display =
+        "block";
+
+
+      errorMessage.style.display =
+        "none";
+
+
+      button.innerHTML =
+        "You're on the list ♡";
+
+
     } catch (error) {
+
+
+      /* Error */
 
       successMessage.style.display =
         "none";
@@ -150,6 +164,7 @@ form.addEventListener(
       button.disabled = false;
 
     }, 3000);
+
 
   }
 );
