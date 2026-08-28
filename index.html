@@ -16,7 +16,6 @@
     content="A little garden for the little things that make your relationship beautiful."
   >
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -26,6 +25,10 @@
   >
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Tally popup -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
 </head>
 
 
@@ -57,7 +60,13 @@
         Join us
       </a>
 
-      <a href="#waitlist" class="nav-button">
+      <a
+        href="https://tally.so/r/1AoeGO"
+        class="nav-button"
+        data-tally-open="1AoeGO"
+        data-tally-emoji-text="🌱"
+        data-tally-emoji-animation="wave"
+      >
         Join waitlist
       </a>
 
@@ -76,8 +85,6 @@
 
     <section class="hero">
 
-
-      <!-- HERO TEXT -->
 
       <div class="hero-copy">
 
@@ -113,7 +120,13 @@
         </p>
 
 
-        <a href="#waitlist" class="primary-button">
+        <a
+          href="https://tally.so/r/1AoeGO"
+          class="primary-button"
+          data-tally-open="1AoeGO"
+          data-tally-emoji-text="🌱"
+          data-tally-emoji-animation="wave"
+        >
 
           Join the waitlist
 
@@ -140,7 +153,6 @@
 
       <div class="hero-phone-area">
 
-
         <div class="floating-heart heart-one">
           ♡
         </div>
@@ -164,32 +176,19 @@
 
 
 
-        <!-- PHONE FRAME -->
-
         <div class="phone">
 
           <div class="phone-speaker"></div>
 
 
-          <!--
-            This is the actual visible screen.
-
-            The screenshot is clipped INSIDE this area.
-          -->
-
           <div class="phone-screen">
 
+            <!--
+              Put app-screenshot.png directly beside
+              index.html.
 
-            <!-- =================================================
-                 YOUR APP SCREENSHOT
-
-                 IMPORTANT:
-
-                 Put app-screenshot.png in the SAME folder
-                 as this index.html file.
-
-                 No assets folder is required.
-            ================================================== -->
+              No assets folder is required.
+            -->
 
             <div class="screenshot-viewport">
 
@@ -201,11 +200,9 @@
 
             </div>
 
-
           </div>
 
         </div>
-
 
       </div>
 
@@ -268,7 +265,6 @@
         class="story-stage stage-seed"
         data-stage="seed"
       >
-
 
         <div class="stage-visual">
 
@@ -360,7 +356,6 @@
         data-stage="water"
       >
 
-
         <div class="stage-copy">
 
           <div class="stage-number">
@@ -404,7 +399,6 @@
 
 
         <div class="stage-visual watering-visual">
-
 
           <div class="water-glow"></div>
 
@@ -459,9 +453,7 @@
         data-stage="flower"
       >
 
-
         <div class="stage-visual flower-visual">
-
 
           <div class="bloom-glow"></div>
 
@@ -574,7 +566,6 @@
 
     <section class="waitlist" id="waitlist">
 
-
       <div class="waitlist-inner">
 
 
@@ -607,73 +598,34 @@
 
 
 
-        <!--
-          ===================================================
-          FORMSPREE
-
-          Replace YOUR_FORMSPREE_ENDPOINT with your
-          actual Formspree endpoint.
-        ===================================================
-        -->
-
-        <form
-          id="waitlist-form"
-          action="YOUR_FORMSPREE_ENDPOINT"
-          method="POST"
-        >
+        <div class="waitlist-action">
 
 
-          <div class="email-form">
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email address"
-              autocomplete="email"
-              required
-            >
-
-
-            <button type="submit">
-
-              Join waitlist
-
-              <span>♡</span>
-
-            </button>
-
-          </div>
-
-
-          <input
-            type="hidden"
-            name="subject"
-            value="New Gratitude Garden waitlist signup"
+          <a
+            href="https://tally.so/r/1AoeGO"
+            class="primary-button"
+            data-tally-open="1AoeGO"
+            data-tally-emoji-text="🌱"
+            data-tally-emoji-animation="wave"
           >
+
+            Join the waitlist
+
+            <span>♡</span>
+
+          </a>
 
 
           <p class="privacy">
-            🔒 No spam. Just updates when we're ready to bloom.
+
+            🔒 No spam. Just updates when
+            we're ready to bloom.
+
           </p>
 
 
-          <p
-            id="success-message"
-            class="success-message"
-          >
-            🌱 You're on the list. See you in the garden.
-          </p>
+        </div>
 
-
-          <p
-            id="error-message"
-            class="error-message"
-          >
-            Something went wrong. Please try again.
-          </p>
-
-
-        </form>
 
       </div>
 
@@ -687,12 +639,11 @@
 
     <section class="creator">
 
-
       <div class="creator-inner">
 
 
         <!--
-          Put profile.jpg in the SAME folder as index.html.
+          Put profile.jpg directly beside index.html.
         -->
 
         <div class="creator-photo-wrap">
@@ -727,9 +678,7 @@
 
 
         <!--
-          ===================================================
-          CHANGE YOUR EMAIL HERE
-          ===================================================
+          CHANGE THIS EMAIL TO YOUR REAL EMAIL.
         -->
 
         <a
