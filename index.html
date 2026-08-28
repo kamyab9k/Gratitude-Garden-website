@@ -25,12 +25,12 @@
     rel="stylesheet"
   >
 
-  <!-- Our CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
+
 
   <!-- =====================================================
        NAVIGATION
@@ -57,10 +57,7 @@
         Join us
       </a>
 
-      <a
-        href="#waitlist"
-        class="nav-button"
-      >
+      <a href="#waitlist" class="nav-button">
         Join waitlist
       </a>
 
@@ -70,16 +67,12 @@
 
 
 
-  <!-- =====================================================
-       MAIN
-  ====================================================== -->
-
   <main>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          HERO
-    ==================================================== -->
+    ====================================================== -->
 
     <section class="hero">
 
@@ -120,10 +113,7 @@
         </p>
 
 
-        <a
-          href="#waitlist"
-          class="primary-button"
-        >
+        <a href="#waitlist" class="primary-button">
 
           Join the waitlist
 
@@ -144,7 +134,9 @@
 
 
 
-      <!-- HERO PHONE -->
+      <!-- =================================================
+           PHONE MOCKUP
+      ================================================== -->
 
       <div class="hero-phone-area">
 
@@ -171,37 +163,49 @@
         </div>
 
 
-        <!-- PHONE -->
+
+        <!-- PHONE FRAME -->
 
         <div class="phone">
 
           <div class="phone-speaker"></div>
 
 
+          <!--
+            This is the actual visible screen.
+
+            The screenshot is clipped INSIDE this area.
+          -->
+
           <div class="phone-screen">
 
-            <!--
-              IMPORTANT:
 
-              Your app screenshot should be uploaded
-              directly next to this HTML file.
+            <!-- =================================================
+                 YOUR APP SCREENSHOT
 
-              Filename:
+                 IMPORTANT:
 
-              app-screenshot.png
+                 Put app-screenshot.png in the SAME folder
+                 as this index.html file.
 
-              NO assets folder is needed.
-            -->
+                 No assets folder is required.
+            ================================================== -->
 
-            <img
-              src="app-screenshot.png"
-              alt="Gratitude Garden app screenshot"
-              class="app-screenshot"
-            >
+            <div class="screenshot-viewport">
+
+              <img
+                src="app-screenshot.png"
+                alt="Gratitude Garden app"
+                class="app-screenshot"
+              >
+
+            </div>
+
 
           </div>
 
         </div>
+
 
       </div>
 
@@ -209,14 +213,11 @@
 
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          STORY INTRO
-    ==================================================== -->
+    ====================================================== -->
 
-    <section
-      class="story-intro"
-      id="story"
-    >
+    <section class="story-intro" id="story">
 
       <div class="eyebrow">
         THE IDEA
@@ -252,9 +253,9 @@
 
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          GARDEN STORY
-    ==================================================== -->
+    ====================================================== -->
 
     <section class="garden-story">
 
@@ -268,8 +269,6 @@
         data-stage="seed"
       >
 
-
-        <!-- VISUAL -->
 
         <div class="stage-visual">
 
@@ -301,8 +300,6 @@
         </div>
 
 
-
-        <!-- TEXT -->
 
         <div class="stage-copy">
 
@@ -364,8 +361,6 @@
       >
 
 
-        <!-- TEXT -->
-
         <div class="stage-copy">
 
           <div class="stage-number">
@@ -408,9 +403,8 @@
 
 
 
-        <!-- WATERING VISUAL -->
-
         <div class="stage-visual watering-visual">
+
 
           <div class="water-glow"></div>
 
@@ -466,9 +460,8 @@
       >
 
 
-        <!-- VISUAL -->
-
         <div class="stage-visual flower-visual">
+
 
           <div class="bloom-glow"></div>
 
@@ -476,7 +469,6 @@
           <div class="flower-garden">
 
             <div class="flower-stem"></div>
-
 
             <div class="flower-leaf leaf-left"></div>
 
@@ -522,8 +514,6 @@
         </div>
 
 
-
-        <!-- TEXT -->
 
         <div class="stage-copy">
 
@@ -578,14 +568,12 @@
 
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          WAITLIST
-    ==================================================== -->
+    ====================================================== -->
 
-    <section
-      class="waitlist"
-      id="waitlist"
-    >
+    <section class="waitlist" id="waitlist">
+
 
       <div class="waitlist-inner">
 
@@ -620,15 +608,12 @@
 
 
         <!--
-          =================================================
+          ===================================================
           FORMSPREE
 
-          Replace:
-
-          YOUR_FORMSPREE_ENDPOINT
-
-          with your actual Formspree endpoint.
-          =================================================
+          Replace YOUR_FORMSPREE_ENDPOINT with your
+          actual Formspree endpoint.
+        ===================================================
         -->
 
         <form
@@ -636,6 +621,7 @@
           action="YOUR_FORMSPREE_ENDPOINT"
           method="POST"
         >
+
 
           <div class="email-form">
 
@@ -686,6 +672,7 @@
             Something went wrong. Please try again.
           </p>
 
+
         </form>
 
       </div>
@@ -694,9 +681,9 @@
 
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          CREATOR
-    ==================================================== -->
+    ====================================================== -->
 
     <section class="creator">
 
@@ -705,17 +692,7 @@
 
 
         <!--
-          =================================================
-          YOUR PROFILE PHOTO
-
-          Upload:
-
-          profile.jpg
-
-          directly next to index.html.
-
-          No assets folder required.
-        ==================================================
+          Put profile.jpg in the SAME folder as index.html.
         -->
 
         <div class="creator-photo-wrap">
@@ -750,13 +727,9 @@
 
 
         <!--
-          =================================================
+          ===================================================
           CHANGE YOUR EMAIL HERE
-
-          Replace BOTH occurrences of:
-
-          YOUR_EMAIL@example.com
-        ==================================================
+          ===================================================
         -->
 
         <a
@@ -778,9 +751,11 @@
 
         </p>
 
+
       </div>
 
     </section>
+
 
   </main>
 
@@ -813,7 +788,7 @@
   </footer>
 
 
-  <!-- Our JavaScript -->
+
   <script src="script.js"></script>
 
 </body>
