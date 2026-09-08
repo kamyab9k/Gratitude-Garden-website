@@ -1,745 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gratitude Garden is a gentle daily ritual for couples to notice the good things and grow closer." />
   <title>Gratitude Garden — Grow closer, together.</title>
-
-  <meta
-    name="description"
-    content="A little garden for the little things that make your relationship beautiful."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-    rel="stylesheet"
-  >
-
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Tally popup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <script async src="https://tally.so/widgets/embed.js"></script>
-
 </head>
-
-
 <body>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="page-grain" aria-hidden="true"></div>
 
-
-  <!-- =====================================================
-       NAVIGATION
-  ====================================================== -->
-
-  <header class="navbar">
-
-    <a href="#" class="logo">
-
-      <span class="logo-flower">✿</span>
-
-      <span>Gratitude Garden</span>
-
-    </a>
-
-
-    <nav>
-
-      <a href="#story">
-        Our idea
-      </a>
-
-      <a href="#waitlist">
-        Join us
-      </a>
-
-      <a
-        href="https://tally.so/r/1AoeGO"
-        class="nav-button"
-        data-tally-open="1AoeGO"
-        data-tally-emoji-text="🌱"
-        data-tally-emoji-animation="wave"
-      >
-        Join waitlist
-      </a>
-
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Gratitude Garden home"><span class="brand-mark">✿</span><span>Gratitude Garden</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#ritual">Our idea</a>
+      <a href="#story">How it grows</a>
+      <a class="nav-cta" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join waitlist <span>↗</span></a>
     </nav>
-
   </header>
 
-
-
-  <main>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section class="hero">
-
-
-      <div class="hero-copy">
-
-        <div class="handwritten">
-          A little space for us ♡
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="script-note">A little space for us <span>♡</span></p>
+        <p class="eyebrow"><span></span> A shared daily ritual</p>
+        <h1 id="hero-title">Grow closer,<br />one <em>gratitude</em><br />at a time.</h1>
+        <p class="lede">Gratitude Garden gives couples a gentle place to notice the little things, appreciate each other, and grow something beautiful together.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist <span class="button-arrow">→</span></a>
+          <a class="text-link" href="#story">See how it works <span>↓</span></a>
         </div>
-
-
-        <h1>
-
-          Grow closer,
-
-          <br>
-
-          one
-
-          <em>gratitude</em>
-
-          <br>
-
-          at a time.
-
-        </h1>
-
-
-        <p>
-
-          Gratitude Garden is a gentle daily ritual
-          for couples to notice the little things,
-          appreciate each other, and grow something
-          beautiful together.
-
-        </p>
-
-
-        <a
-          href="https://tally.so/r/1AoeGO"
-          class="primary-button"
-          data-tally-open="1AoeGO"
-          data-tally-emoji-text="🌱"
-          data-tally-emoji-animation="wave"
-        >
-
-          Join the waitlist
-
-          <span>♡</span>
-
-        </a>
-
-
-        <div class="made-for">
-
-          <span>♥</span>
-
-          Made for couples, with love.
-
-        </div>
-
+        <p class="tiny-love"><span>♥</span> Made for couples, with love.</p>
       </div>
 
-
-
-      <!-- =================================================
-           PHONE MOCKUP
-      ================================================== -->
-
-      <div class="hero-phone-area">
-
-        <div class="floating-heart heart-one">
-          ♡
-        </div>
-
-        <div class="floating-heart heart-two">
-          ♡
-        </div>
-
-
-        <div class="floating-petal petal-one">
-          ✦
-        </div>
-
-        <div class="floating-petal petal-two">
-          ✦
-        </div>
-
-        <div class="floating-petal petal-three">
-          ✦
-        </div>
-
-
-
+      <div class="hero-art reveal" data-parallax aria-label="Preview of the Gratitude Garden app">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <span class="float float-heart">♡</span><span class="float float-star">✦</span><span class="float float-leaf">❋</span>
+        <div class="phone-shadow"></div>
         <div class="phone">
-
-          <div class="phone-speaker"></div>
-
-
-          <div class="phone-screen">
-
-            <!--
-              Put app-screenshot.png directly beside
-              index.html.
-
-              No assets folder is required.
-            -->
-
-            <div class="screenshot-viewport">
-
-              <img
-                src="app-screenshot.png"
-                alt="Gratitude Garden app"
-                class="app-screenshot"
-              >
-
-            </div>
-
+          <div class="phone-button"></div><div class="phone-speaker"></div>
+          <div class="screen">
+            <img src="app-screenshot.png" alt="Gratitude Garden app screen" onerror="this.style.display='none';this.nextElementSibling.hidden=false" />
+            <div class="screen-fallback" hidden><span>Today’s bloom</span><strong>A little garden<br />for the good things.</strong><i>✿</i></div>
           </div>
-
+          <div class="screen-glow"></div>
         </div>
-
+        <div class="app-note"><span>✦</span> Little thanks. Lasting love.</div>
       </div>
-
     </section>
 
-
-
-    <!-- =====================================================
-         STORY INTRO
-    ====================================================== -->
-
-    <section class="story-intro" id="story">
-
-      <div class="eyebrow">
-        THE IDEA
+    <section class="ritual" id="ritual" aria-labelledby="ritual-title">
+      <div class="ritual-inner reveal">
+        <p class="eyebrow eyebrow-center">The idea</p>
+        <h2 id="ritual-title">It starts with<br />something <em>small.</em></h2>
+        <p>One kind word. A thoughtful gesture. A moment you don’t want to forget. What if those little moments could grow into something you can see?</p>
+        <div class="ritual-line" aria-hidden="true"><i></i><span>seed</span><i></i><span>sprout</span><i></i><span>bloom</span><i></i></div>
       </div>
-
-
-      <h2>
-
-        It starts with
-
-        <br>
-
-        something
-
-        <em>small.</em>
-
-      </h2>
-
-
-      <p>
-
-        A kind word. A thoughtful gesture.
-        A moment you don't want to forget.
-
-        <br>
-
-        What if those little moments could
-        grow into something you could see?
-
-      </p>
-
     </section>
 
-
-
-    <!-- =====================================================
-         GARDEN STORY
-    ====================================================== -->
-
-    <section class="garden-story">
-
-
-      <!-- =================================================
-           STAGE 1 — SEED
-      ================================================== -->
-
-      <div
-        class="story-stage stage-seed"
-        data-stage="seed"
-      >
-
-        <div class="stage-visual">
-
-          <div class="stage-glow"></div>
-
-
-          <div class="soil">
-
-            <div class="seed">
-
-              <div class="seed-body"></div>
-
-              <div class="seed-root"></div>
-
-            </div>
-
-          </div>
-
-
-          <div class="stage-particles">
-
-            <span>✦</span>
-            <span>·</span>
-            <span>✦</span>
-            <span>·</span>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="stage-copy">
-
-          <div class="stage-number">
-            01
-          </div>
-
-          <div class="stage-label">
-            PLANT A SEED
-          </div>
-
-
-          <h2>
-
-            Start with
-
-            <em>gratitude.</em>
-
-          </h2>
-
-
-          <p>
-
-            Tell your partner something you appreciate.
-
-            <br><br>
-
-            Maybe it's:
-
-            <span class="example">
-              "Thank you for always making
-              me laugh when I need it most."
-            </span>
-
-            Every little thank-you becomes
-            a seed in your shared garden.
-
-          </p>
-
-
-          <div class="stage-caption">
-            One kind thought can be the beginning
-            of something beautiful.
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =================================================
-           STAGE 2 — WATER
-      ================================================== -->
-
-      <div
-        class="story-stage stage-water"
-        data-stage="water"
-      >
-
-        <div class="stage-copy">
-
-          <div class="stage-number">
-            02
-          </div>
-
-          <div class="stage-label">
-            NURTURE IT
-          </div>
-
-
-          <h2>
-
-            Keep showing
-
-            <em>up.</em>
-
-          </h2>
-
-
-          <p>
-
-            Relationships grow when we pay attention
-            to the good things.
-
-            <br><br>
-
-            A few seconds of gratitude each day
-            becomes a little ritual — something
-            you share, together.
-
-          </p>
-
-
-          <div class="stage-caption">
-            Water the things you want to grow.
-          </div>
-
-        </div>
-
-
-
-        <div class="stage-visual watering-visual">
-
-          <div class="water-glow"></div>
-
-
-          <div class="watering-can">
-
-            <div class="can-body"></div>
-
-            <div class="can-handle"></div>
-
-            <div class="can-spout"></div>
-
-          </div>
-
-
-          <div class="water-drops">
-
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-          </div>
-
-
-          <div class="small-sprout">
-
-            <div class="sprout-stem"></div>
-
-            <div class="sprout-leaf left"></div>
-
-            <div class="sprout-leaf right"></div>
-
-          </div>
-
-
-          <div class="soil small-soil"></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =================================================
-           STAGE 3 — FLOWER
-      ================================================== -->
-
-      <div
-        class="story-stage stage-flower"
-        data-stage="flower"
-      >
-
-        <div class="stage-visual flower-visual">
-
-          <div class="bloom-glow"></div>
-
-
-          <div class="flower-garden">
-
-            <div class="flower-stem"></div>
-
-            <div class="flower-leaf leaf-left"></div>
-
-            <div class="flower-leaf leaf-right"></div>
-
-
-            <div class="flower-bloom">
-
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-
-            </div>
-
-
-            <div class="flower-center">
-              ♥
-            </div>
-
-
-            <div class="grass grass-one"></div>
-
-            <div class="grass grass-two"></div>
-
-            <div class="grass grass-three"></div>
-
-          </div>
-
-
-          <div class="bloom-particles">
-
-            <span>✦</span>
-            <span>✦</span>
-            <span>·</span>
-            <span>♡</span>
-            <span>✦</span>
-
-          </div>
-
-        </div>
-
-
-
-        <div class="stage-copy">
-
-          <div class="stage-number">
-            03
-          </div>
-
-          <div class="stage-label">
-            WATCH IT BLOOM
-          </div>
-
-
-          <h2>
-
-            Beautiful things
-
-            <br>
-
-            <em>grow here.</em>
-
-          </h2>
-
-
-          <p>
-
-            Every gratitude becomes part of
-            your shared garden.
-
-            <br><br>
-
-            Over time, you don't just have a collection
-            of kind words.
-
-            <br><br>
-
-            You have a little reminder of
-            everything you love about each other.
-
-          </p>
-
-
-          <div class="stage-caption">
-            Grow something good together.
-          </div>
-
-        </div>
-
-      </div>
-
-
+    <section class="story" id="story" aria-label="How Gratitude Garden works">
+      <div class="story-intro section-shell reveal"><p class="eyebrow">A ritual that grows with you</p><p>Small moments become a living reminder of what you love about one another.</p></div>
+
+      <article class="chapter section-shell chapter-seed reveal" data-reveal>
+        <div class="chapter-art seed-art" aria-hidden="true"><div class="illustration-glow"></div><div class="spark s1">✦</div><div class="spark s2">·</div><div class="spark s3">✦</div><div class="soil"><div class="seed-shape"></div><i></i></div><div class="art-label">a tiny beginning</div></div>
+        <div class="chapter-copy"><p class="chapter-number">01</p><p class="eyebrow">Plant a seed</p><h2>Start with<br /><em>gratitude.</em></h2><p>Tell your partner something you appreciate. Every little thank-you becomes a seed in your shared garden.</p><blockquote>“Thank you for always making me laugh when I need it most.”</blockquote><p class="chapter-caption">One kind thought can be the beginning of something beautiful.</p></div>
+      </article>
+
+      <article class="chapter section-shell chapter-water reveal" data-reveal>
+        <div class="chapter-copy"><p class="chapter-number">02</p><p class="eyebrow">Nurture it</p><h2>Keep showing<br /><em>up.</em></h2><p>Relationships grow when we pay attention to the good things. A few seconds of gratitude each day becomes a little ritual you share, together.</p><p class="chapter-caption">Water the things you want to grow.</p></div>
+        <div class="chapter-art water-art" aria-hidden="true"><div class="illustration-glow green-glow"></div><div class="watering-can"><b></b><i></i><em></em></div><div class="drops"><i></i><i></i><i></i><i></i><i></i></div><div class="little-soil"></div><div class="sprout"><i></i><b></b><b></b></div><div class="art-label">a ritual in motion</div></div>
+      </article>
+
+      <article class="chapter section-shell chapter-bloom reveal" data-reveal>
+        <div class="chapter-art bloom-art" aria-hidden="true"><div class="illustration-glow bloom-glow"></div><div class="flower"><i class="stem"></i><b class="leaf left-leaf"></b><b class="leaf right-leaf"></b><div class="petals"><i></i><i></i><i></i><i></i><i></i><i></i><b>♥</b></div><div class="grass"></div></div><div class="spark b1">♡</div><div class="spark b2">✦</div><div class="spark b3">✦</div><div class="art-label">a garden of your own</div></div>
+        <div class="chapter-copy"><p class="chapter-number">03</p><p class="eyebrow">Watch it bloom</p><h2>Beautiful things<br /><em>grow here.</em></h2><p>Over time, you don’t just have a collection of kind words. You have a little reminder of everything you love about each other.</p><p class="chapter-caption">Grow something good together.</p></div>
+      </article>
     </section>
 
-
-
-    <!-- =====================================================
-         WAITLIST
-    ====================================================== -->
-
-    <section class="waitlist" id="waitlist">
-
-      <div class="waitlist-inner">
-
-
-        <div class="waitlist-text">
-
-          <div class="eyebrow">
-            COMING SOON
-          </div>
-
-
-          <h2>
-
-            Your garden
-
-            <br>
-
-            is <em>waiting.</em>
-
-          </h2>
-
-
-          <p>
-
-            Be one of the first couples to
-            grow with Gratitude Garden.
-
-          </p>
-
-        </div>
-
-
-
-        <div class="waitlist-action">
-
-
-          <a
-            href="https://tally.so/r/1AoeGO"
-            class="primary-button"
-            data-tally-open="1AoeGO"
-            data-tally-emoji-text="🌱"
-            data-tally-emoji-animation="wave"
-          >
-
-            Join the waitlist
-
-            <span>♡</span>
-
-          </a>
-
-
-          <p class="privacy">
-
-            🔒 No spam. Just updates when
-            we're ready to bloom.
-
-          </p>
-
-
-        </div>
-
-
-      </div>
-
+    <section class="waitlist section-shell" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="waitlist-card reveal"><div class="waitlist-leaf left">❋</div><div class="waitlist-leaf right">❋</div><div class="waitlist-copy"><p class="eyebrow">Coming soon</p><h2 id="waitlist-title">Your garden<br />is <em>waiting.</em></h2><p>Be one of the first couples to grow with Gratitude Garden.</p></div><div class="waitlist-action"><a class="button button-light" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist <span class="button-arrow">→</span></a><p>🔒 No spam. Just a note when we’re ready to bloom.</p></div></div>
     </section>
 
-
-
-    <!-- =====================================================
-         CREATOR
-    ====================================================== -->
-
-    <section class="creator">
-
-      <div class="creator-inner">
-
-
-        <!--
-          Put profile.jpg directly beside index.html.
-        -->
-
-        <div class="creator-photo-wrap">
-
-          <img
-            src="profile.jpg"
-            alt="Kamyab Khosravi"
-            class="creator-photo"
-          >
-
-        </div>
-
-
-        <div class="creator-eyebrow">
-          THE PERSON BEHIND THE GARDEN
-        </div>
-
-
-        <h2>
-          Made with love.
-        </h2>
-
-
-        <p class="creator-role">
-          Creator of the app
-        </p>
-
-
-        <h3>
-          Kamyab Khosravi
-        </h3>
-
-
-        <!--
-          CHANGE THIS EMAIL TO YOUR REAL EMAIL.
-        -->
-
-        <a
-          href="mailto: k.khosravi.dev@gmail.com"
-          class="creator-email"
-        >
-          k.khosravi.dev@gmail.com
-        </a>
-
-
-        <p class="creator-message">
-
-          Built from a simple idea:
-
-          <br>
-
-          when we notice the good things,
-          they tend to grow.
-
-        </p>
-
-
-      </div>
-
-    </section>
-
-
+    <section class="creator" aria-labelledby="creator-title"><div class="creator-inner reveal"><div class="portrait"><img src="profile.jpg" alt="Kamyab Khosravi, creator of Gratitude Garden" onerror="this.style.display='none';this.parentElement.classList.add('no-photo')" /><span>KK</span></div><p class="eyebrow eyebrow-center">The person behind the garden</p><h2 id="creator-title">Made with love.</h2><p class="creator-role">Creator of the app</p><h3>Kamyab Khosravi</h3><a class="creator-email" href="mailto:k.khosravi.dev@gmail.com">k.khosravi.dev@gmail.com</a><p class="creator-message">Built from a simple idea: when we notice the good things, they tend to grow.</p></div></section>
   </main>
 
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer>
-
-    <div class="footer-logo">
-
-      <span>✿</span>
-
-      Gratitude Garden
-
-    </div>
-
-
-    <p>
-      Grow something good together.
-    </p>
-
-
-    <small>
-      © 2026 Gratitude Garden · Made with love ♡
-    </small>
-
-  </footer>
-
-
-
+  <footer><a class="brand" href="#top"><span class="brand-mark">✿</span><span>Gratitude Garden</span></a><p>Grow something good together.</p><small>© 2026 Gratitude Garden · Made with love ♡</small></footer>
   <script src="script.js"></script>
-
 </body>
-
 </html>
