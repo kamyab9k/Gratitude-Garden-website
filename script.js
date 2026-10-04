@@ -244,6 +244,57 @@
           colBar.style.transform = `scaleX(${(t + 1) / n})`;
         });
       }, { passive: true });
+
+      // gentle auto-play: glide to the next flower every few seconds, loop at the end,
+      // pause while the visitor touches it, and only run while the section is on screen
+      if (!reduceMotion) {
+        const HOLD = 3200;      // time each flower stays
+        const GLIDE = 1300;     // how long the slide takes
+        let timer = 0, gliding = false, visible = false, resumeT = 0, userBusy = false;
+        const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+        const glideTo = (index) => {
+          const from = strip.scrollLeft;
+          const to = index * strip.clientWidth;
+          const start = performance.now();
+          gliding = true;
+          strip.style.scrollSnapType = 'none';
+          const step = (now) => {
+            if (userBusy) { gliding = false; strip.style.scrollSnapType = ''; return; }
+            const t = Math.min(1, (now - start) / GLIDE);
+            strip.scrollLeft = from + (to - from) * ease(t);
+            if (t < 1) requestAnimationFrame(step);
+            else { gliding = false; strip.style.scrollSnapType = ''; schedule(); }
+          };
+          requestAnimationFrame(step);
+        };
+        const schedule = () => {
+          clearTimeout(timer);
+          if (!visible || userBusy) return;
+          timer = setTimeout(() => {
+            if (!visible || userBusy || gliding) return;
+            const i = Math.round(strip.scrollLeft / Math.max(1, strip.clientWidth));
+            glideTo(i >= n - 1 ? 0 : i + 1);
+          }, HOLD);
+        };
+        const pause = () => {
+          userBusy = true;
+          clearTimeout(timer); clearTimeout(resumeT);
+        };
+        const resume = () => {
+          clearTimeout(resumeT);
+          resumeT = setTimeout(() => { userBusy = false; schedule(); }, 4000);
+        };
+        strip.addEventListener('touchstart', pause, { passive: true });
+        strip.addEventListener('pointerdown', pause, { passive: true });
+        strip.addEventListener('touchend', resume, { passive: true });
+        strip.addEventListener('pointerup', resume, { passive: true });
+        strip.addEventListener('touchcancel', resume, { passive: true });
+        new IntersectionObserver(([e]) => {
+          visible = e.isIntersecting;
+          if (visible) schedule(); else clearTimeout(timer);
+        }, { threshold: 0.5 }).observe(strip);
+        document.addEventListener('visibilitychange', () => { if (document.hidden) clearTimeout(timer); else schedule(); });
+      }
     }
     if (scenes) {
     const colTl = gsap.timeline({
