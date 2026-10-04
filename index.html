@@ -3,106 +3,305 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gratitude Garden — grow closer, one thank-you at a time</title>
-  <meta name="description" content="Gratitude Garden is a shared garden for couples. Every thank-you you send your partner blooms into a flower. Join the waitlist." />
-  <meta name="theme-color" content="#fbf1ee" />
-  <meta property="og:title" content="Gratitude Garden" />
-  <meta property="og:description" content="A shared garden for couples. Every thank-you blooms into a flower." />
+  <title>Gratitude Garden: Couples — grow closer, one thank-you at a time</title>
+  <meta name="description" content="Gratitude Garden is a shared garden for couples. Every thank-you you plant for your partner blooms into a flower you both can see. Join the waitlist." />
+  <meta name="theme-color" content="#fbf3ef" />
+  <meta property="og:title" content="Gratitude Garden: Couples" />
+  <meta property="og:description" content="Notice the good in each other. Every thank-you blooms into a flower in a garden you share." />
   <meta property="og:image" content="assets/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/garden.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/garden/home.webp" />
   <link rel="stylesheet" href="style.css" />
   <script>document.documentElement.classList.add('js')</script>
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <div class="scroll-stem" aria-hidden="true"><span></span></div>
+
+  <!-- PRELOADER -->
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader-row">
+      <span class="loader-brand">Gratitude Garden</span>
+      <span class="loader-count" data-count>0</span>
+    </div>
+    <img class="loader-flower" src="assets/flowers/heartbloom.webp" alt="" width="480" height="480" />
+    <div class="loader-line"><span data-loader-line></span></div>
+  </div>
+
+  <div class="scroll-bar" aria-hidden="true"><span data-scroll-bar></span></div>
 
   <header class="nav" data-nav>
     <a class="brand" href="#top" aria-label="Gratitude Garden, back to top">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="16" cy="9" r="5.2"/><circle cx="22.7" cy="13.9" r="5.2"/><circle cx="20.1" cy="21.8" r="5.2"/><circle cx="11.9" cy="21.8" r="5.2"/><circle cx="9.3" cy="13.9" r="5.2"/></g><circle cx="16" cy="16" r="3.4" fill="#f5c543"/></svg>
+      <img src="assets/app-icon.webp" alt="" width="36" height="36" />
       <span>Gratitude Garden</span>
     </a>
     <nav aria-label="Main">
-      <a href="#tour">How it works</a>
+      <a href="#flowers">Flowers</a>
+      <a href="#path">How it grows</a>
       <a href="#plant">Try it</a>
-      <a href="#creator">About</a>
-      <a class="btn btn-small" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
+      <a href="#maker">About</a>
+      <a class="btn btn-nav" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
     </nav>
   </header>
 
   <main id="main">
+
     <!-- HERO -->
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <canvas class="petals" aria-hidden="true"></canvas>
-      <div class="hero-copy">
-        <p class="hero-kicker" data-load="0">For couples who want to notice each other more</p>
-        <h1 id="hero-title" class="hero-title">
-          <span class="line"><span data-load="1">Grow closer,</span></span>
-          <span class="line"><span data-load="2">one thank-you</span></span>
-          <span class="line"><span data-load="3">at a time.</span></span>
-        </h1>
-        <p class="hero-lede" data-load="4">Tell your partner what you appreciate about them. Each thank-you is planted in a garden you share — and it keeps growing for as long as you do.</p>
-        <div class="hero-actions" data-load="5">
-          <a class="btn btn-primary magnetic" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
-          <a class="link-quiet" href="#tour">See how it works</a>
+    <section class="hero" id="top" data-hero aria-labelledby="hero-title">
+      <div class="hero-stage">
+        <img class="hero-bg" data-hero-bg src="assets/garden/home.webp" width="926" height="1518" alt="" />
+        <div class="hero-shade"></div>
+        <canvas class="petals" data-petals aria-hidden="true"></canvas>
+        <img class="hero-canopy" data-hero-canopy src="assets/garden/home_canopy.webp" alt="" aria-hidden="true" />
+        <img class="hero-tree hero-tree-l" data-hero-tl src="assets/garden/meadow_tree.webp" alt="" aria-hidden="true" />
+        <img class="hero-tree hero-tree-r" data-hero-tr src="assets/garden/meadow_tree.webp" alt="" aria-hidden="true" />
+        <div class="hero-tint" data-hero-tint></div>
+
+        <div class="hero-center">
+          <p class="hero-kicker" data-hero-kicker>For couples</p>
+          <h1 class="hero-title" id="hero-title" data-hero-title aria-label="Gratitude Garden">
+            <span class="hero-word">Gratitude</span>
+            <span class="hero-word">Garden</span>
+          </h1>
+          <p class="hero-second" data-hero-second>Notice the good in each other.</p>
         </div>
-      </div>
 
-      <div class="hero-art" data-tilt aria-hidden="true">
-        <div class="hero-sun"></div>
-        <img class="hero-garden" src="assets/garden.webp" width="871" height="1460" alt="" />
-        <div class="hero-note note-a">thank you for the coffee this morning</div>
-        <div class="hero-note note-b">you make hard days lighter</div>
+        <div class="hero-foot" data-hero-foot>
+          <p>Grow closer, one thank-you at a time.</p>
+          <a class="btn btn-primary" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
+        </div>
+        <p class="hero-scroll" aria-hidden="true"><span>Scroll</span><i></i></p>
       </div>
-
-      <a class="scroll-hint" href="#tour" aria-label="Scroll to how it works"><span></span></a>
     </section>
 
-    <!-- SCROLL TOUR -->
-    <section class="tour" id="tour" aria-label="How Gratitude Garden works" data-tour>
-      <div class="tour-sticky">
-        <div class="tour-text">
-          <p class="tour-label">How it works</p>
-          <ol class="tour-steps">
-            <li class="tour-step is-active" data-step="0">
-              <h2>This is your garden.</h2>
-              <p>You and your partner share one. It starts quiet — a path, a stream, a few empty plots of soil.</p>
-            </li>
-            <li class="tour-step" data-step="1">
-              <h2>Every empty plot is a thank-you waiting.</h2>
-              <p>Notice something kind they did today? That’s a seed.</p>
-            </li>
-            <li class="tour-step" data-step="2">
-              <h2>Tap plant, write what you noticed.</h2>
-              <p>A few words is enough. It takes less time than making tea.</p>
-            </li>
-            <li class="tour-step" data-step="3">
-              <h2>It blooms, with your words on it.</h2>
-              <p>“You make me laugh” becomes a rose by the path, waiting for your partner to find it.</p>
-            </li>
-            <li class="tour-step" data-step="4">
-              <h2>Over time, it fills up.</h2>
-              <p>Months later, the garden is a map of everything you love about each other — and something to walk through on a hard day.</p>
-            </li>
-          </ol>
-          <div class="tour-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <!-- STATEMENT -->
+    <section class="statement" aria-label="The idea">
+      <p class="statement-text" data-split>Most couples slowly stop saying the small things. Gratitude Garden is a garden you share, where every thank-you becomes a flower — one you can both watch grow.</p>
+    </section>
+
+    <!-- FLOWER COLLECTION -->
+    <section class="collection" id="flowers" data-collection aria-labelledby="collection-title">
+      <div class="collection-stage">
+        <div class="collection-head">
+          <span class="collection-num" data-col-num>01</span>
+          <h2 id="collection-title">Every flower<br />says something</h2>
+          <div class="collection-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="collection-bar" aria-hidden="true"><span data-col-bar></span></div>
+
+        <div class="collection-slides">
+          <article class="flower-slide" data-tint="#fbe3e4">
+            <p class="slide-marquee" aria-hidden="true"><span>Rose Rose Rose Rose Rose Rose</span></p>
+            <img class="slide-flower" src="assets/flowers/rose.webp" alt="Rose" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Rose</h3>
+              <p class="slide-meaning">Love and passion</p>
+              <p class="slide-story">The flower of love for more than two thousand years. In Greek myth, the rose belonged to Aphrodite herself.</p>
+              <p class="slide-for"><span>Plant it for</span> anything that made you fall for them a little more</p>
+            </div>
+          </article>
+          <article class="flower-slide" data-tint="#fdf0cf">
+            <p class="slide-marquee" aria-hidden="true"><span>Sunflower Sunflower Sunflower Sunflower</span></p>
+            <img class="slide-flower" src="assets/flowers/sunflower.webp" alt="Sunflower" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Sunflower</h3>
+              <p class="slide-meaning">Adoration and loyalty</p>
+              <p class="slide-story">Young sunflowers turn to follow the sun across the sky, always facing the light they love.</p>
+              <p class="slide-for"><span>Plant it for</span> how they always turn towards you</p>
+            </div>
+          </article>
+          <article class="flower-slide" data-tint="#fde2dc">
+            <p class="slide-marquee" aria-hidden="true"><span>Tulip Tulip Tulip Tulip Tulip Tulip</span></p>
+            <img class="slide-flower" src="assets/flowers/tulip.webp" alt="Tulip" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Tulip</h3>
+              <p class="slide-meaning">Perfect love</p>
+              <p class="slide-story">In 17th-century Holland a single tulip bulb could cost more than a house. A red tulip says “I love you”.</p>
+              <p class="slide-for"><span>Plant it for</span> saying “I love you” in your own way</p>
+            </div>
+          </article>
+          <article class="flower-slide" data-tint="#ebe4f7">
+            <p class="slide-marquee" aria-hidden="true"><span>Lavender Lavender Lavender Lavender</span></p>
+            <img class="slide-flower" src="assets/flowers/lavender.webp" alt="Lavender" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Lavender</h3>
+              <p class="slide-meaning">Calm and devotion</p>
+              <p class="slide-story">Its scent has been used to calm the mind since Roman times — a quiet, steady comfort.</p>
+              <p class="slide-for"><span>Plant it for</span> the peace you feel when you’re together</p>
+            </div>
+          </article>
+          <article class="flower-slide" data-tint="#fbe6d6">
+            <p class="slide-marquee" aria-hidden="true"><span>Pansy Pansy Pansy Pansy Pansy Pansy</span></p>
+            <img class="slide-flower" src="assets/flowers/pansy.webp" alt="Pansy" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Pansy</h3>
+              <p class="slide-meaning">You’re always on my mind</p>
+              <p class="slide-story">Its name comes from the French “pensée”, a thought. Its little face looks as if it’s thinking of someone.</p>
+              <p class="slide-for"><span>Plant it for</span> when they thought of you without being asked</p>
+            </div>
+          </article>
+          <article class="flower-slide" data-tint="#f9dfe6">
+            <p class="slide-marquee" aria-hidden="true"><span>Peony Peony Peony Peony Peony Peony</span></p>
+            <img class="slide-flower" src="assets/flowers/peony.webp" alt="Peony" width="480" height="480" loading="lazy" />
+            <div class="slide-copy">
+              <h3>Peony <em class="rarity">Legendary</em></h3>
+              <p class="slide-meaning">A happy life together</p>
+              <p class="slide-story">In China the peony is the “king of flowers”, a wish for a happy marriage. A peony plant can live for a hundred years.</p>
+              <p class="slide-for"><span>Plant it for</span> the life you are building together</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GARDEN PATH -->
+    <section class="path" id="path" aria-labelledby="path-title">
+      <div class="path-intro">
+        <span class="section-num">02</span>
+        <h2 id="path-title">Take a walk<br />down your garden</h2>
+        <p>This is the path from the app. It starts empty. Here is how it fills up.</p>
+      </div>
+
+      <div class="path-track" data-path>
+        <div class="path-strip" aria-hidden="true">
+          <img src="assets/garden/tile_1_first.webp" width="926" height="1731" alt="" />
+          <img src="assets/garden/tile_2.webp" width="926" height="1731" alt="" loading="lazy" />
+          <img src="assets/garden/tile_3.webp" width="926" height="1731" alt="" loading="lazy" />
         </div>
 
-        <div class="tour-phone">
-          <div class="phone">
-            <div class="phone-screen">
-              <div class="camera" data-camera>
-                <img src="assets/app-screen.webp" width="871" height="1805" alt="The Gratitude Garden app: an illustrated garden with flowers labelled ‘Your support’, ‘Your kindness’, ‘You make me laugh’, ‘You’re my peace’ and ‘Our little adventures’, under a blossoming tree." loading="lazy" />
-                <span class="focus-ring" data-ring></span>
-              </div>
+        <ol class="path-steps">
+          <li class="path-step" style="--top: 7%" data-side="left">
+            <div class="planted" style="--x: 30%">
+              <span class="plant-note">listened to my whole day <b>♥</b></span>
+              <img src="assets/flowers/tulip.webp" alt="" width="480" height="480" loading="lazy" />
             </div>
+            <div class="step-text">
+              <span class="step-num">01</span>
+              <h3>Notice something</h3>
+              <p>What did they do lately that you liked? Write it down in a few words. Out loud — not just in your head.</p>
+            </div>
+          </li>
+          <li class="path-step" style="--top: 25%" data-side="right">
+            <div class="planted" style="--x: 66%">
+              <span class="plant-note">you make me laugh <b>♥</b></span>
+              <img src="assets/flowers/gerbera.webp" alt="" width="480" height="480" loading="lazy" />
+            </div>
+            <div class="step-text">
+              <span class="step-num">02</span>
+              <h3>Pick the flower that says it</h3>
+              <p>A gerbera for the moments they made you laugh. A lily for the times they stood by you. Every flower has its own meaning.</p>
+            </div>
+          </li>
+          <li class="path-step" style="--top: 44%" data-side="left">
+            <div class="planted" style="--x: 32%">
+              <span class="plant-note">for always being there <b>♥</b></span>
+              <img src="assets/flowers/lily.webp" alt="" width="480" height="480" loading="lazy" />
+            </div>
+            <div class="step-text">
+              <span class="step-num">03</span>
+              <h3>It blooms for both of you</h3>
+              <p>Your partner gets a little note — <em>“Alex noticed something about you”</em> — and a new flower is waiting in the garden you share.</p>
+            </div>
+          </li>
+          <li class="path-step" style="--top: 63%" data-side="right">
+            <div class="planted" style="--x: 64%">
+              <span class="plant-note">our sunday walks <b>♥</b></span>
+              <img src="assets/flowers/sunflower.webp" alt="" width="480" height="480" loading="lazy" />
+            </div>
+            <div class="step-text">
+              <span class="step-num">04</span>
+              <h3>Give it a drop of love</h3>
+              <p>Water your flowers each day to keep them healthy. If it rained last night, the rain already did it for you.</p>
+            </div>
+          </li>
+          <li class="path-step" style="--top: 82%" data-side="left">
+            <div class="planted" style="--x: 34%">
+              <span class="plant-note">you’re my peace <b>♥</b></span>
+              <img src="assets/flowers/lavender.webp" alt="" width="480" height="480" loading="lazy" />
+            </div>
+            <div class="step-text">
+              <span class="step-num">05</span>
+              <h3>Visitors move in</h3>
+              <p>As it grows, butterflies, birds, bees, a hedgehog and more find their way into your garden — each with its own little meaning.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="facts" aria-labelledby="facts-title">
+      <div class="facts-head">
+        <span class="section-num">03</span>
+        <h2 id="facts-title">Why a little thank-you goes a long way</h2>
+      </div>
+      <div class="facts-grid">
+        <figure class="fact">
+          <p class="fact-big"><span data-countup="5">5</span><small>:1</small></p>
+          <figcaption>
+            <p>Couples who stay together share about five positive moments for every negative one. Small, noticed kindnesses add up.</p>
+            <cite>Gottman &amp; Levenson, 1992</cite>
+          </figcaption>
+        </figure>
+        <figure class="fact">
+          <p class="fact-big"><span data-countup="1">1</span><small>day</small></p>
+          <figcaption>
+            <p>Gratitude after a kind moment predicted feeling closer and more satisfied the next day — for both partners.</p>
+            <cite>Algoe, Gable &amp; Maisel, 2010</cite>
+          </figcaption>
+        </figure>
+        <figure class="fact">
+          <p class="fact-big"><span data-countup="9">9</span><small>months</small></p>
+          <figcaption>
+            <p>The more grateful partners were, the more likely they were to still be together nine months later.</p>
+            <cite>Gordon et al., 2012</cite>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- MORE (horizontal) -->
+    <section class="more" data-more aria-labelledby="more-title">
+      <div class="more-pin">
+        <div class="more-track" data-more-track>
+          <div class="more-intro">
+            <span class="section-num">04</span>
+            <h2 id="more-title">More ways to grow together</h2>
+            <p class="more-hint" aria-hidden="true">Keep scrolling</p>
           </div>
+          <article class="more-panel">
+            <img src="assets/bouquet-valentines-day.webp" alt="A bouquet of red roses tied with a ribbon" loading="lazy" />
+            <div>
+              <h3>Bouquets for the big days</h3>
+              <p>Send a bouquet with a note only they would understand. It blooms on their screen the next time they open the app.</p>
+            </div>
+          </article>
+          <article class="more-panel">
+            <img src="assets/bouquet-anniversary.webp" alt="An anniversary bouquet of roses and lilies" loading="lazy" />
+            <div>
+              <h3>Days you’ll never forget</h3>
+              <p>Save your anniversary and birthdays. You’ll both get a reminder in time, with the right bouquet ready.</p>
+            </div>
+          </article>
+          <article class="more-panel">
+            <img src="assets/timeline-bloom.webp" alt="A single rose in bloom" loading="lazy" />
+            <div>
+              <h3>Relive your story</h3>
+              <p>Scroll back through every gratitude you’ve shared on your timeline — the two of you, one kind moment at a time.</p>
+            </div>
+          </article>
+          <article class="more-panel">
+            <img src="assets/flowers/moth_orchid.webp" alt="A pink orchid" loading="lazy" />
+            <div>
+              <h3>Photos, videos and voice notes</h3>
+              <p>Keep a photo, a short video or a voice note with a memory, like a stamp in your shared album.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -110,93 +309,90 @@
     <!-- PLANT DEMO -->
     <section class="plant" id="plant" aria-labelledby="plant-title">
       <div class="plant-head">
-        <h2 id="plant-title">Go on, plant one.</h2>
-        <p>Think of one small thing your person did this week. Write it down and watch it grow. Nothing you type here is saved or sent anywhere.</p>
+        <span class="section-num">05</span>
+        <h2 id="plant-title">Plant your first one</h2>
+        <p>Pick a flower, write what they did, and watch it grow. Just for fun — nothing you type here is saved or sent.</p>
       </div>
 
       <form class="plant-form" data-plant-form autocomplete="off">
-        <label class="sr-only" for="gratitude">Something you appreciate</label>
-        <input id="gratitude" name="gratitude" type="text" maxlength="48" placeholder="Thank you for…" required />
-        <button class="btn btn-primary" type="submit">Plant it</button>
+        <fieldset class="flower-pick">
+          <legend class="sr-only">Choose a flower</legend>
+          <label><input type="radio" name="flower" value="rose" checked /><img src="assets/flowers/rose.webp" alt="" /><span>Rose</span></label>
+          <label><input type="radio" name="flower" value="sunflower" /><img src="assets/flowers/sunflower.webp" alt="" /><span>Sunflower</span></label>
+          <label><input type="radio" name="flower" value="tulip" /><img src="assets/flowers/tulip.webp" alt="" /><span>Tulip</span></label>
+          <label><input type="radio" name="flower" value="daisy" /><img src="assets/flowers/daisy.webp" alt="" /><span>Daisy</span></label>
+          <label><input type="radio" name="flower" value="gerbera" /><img src="assets/flowers/gerbera.webp" alt="" /><span>Gerbera</span></label>
+          <label><input type="radio" name="flower" value="lavender" /><img src="assets/flowers/lavender.webp" alt="" /><span>Lavender</span></label>
+          <label><input type="radio" name="flower" value="poppy" /><img src="assets/flowers/poppy.webp" alt="" /><span>Poppy</span></label>
+        </fieldset>
+        <div class="plant-row">
+          <label class="sr-only" for="gratitude">What are you grateful for?</label>
+          <input id="gratitude" name="gratitude" type="text" maxlength="40" placeholder="e.g. listened to my whole day" required />
+          <button class="btn btn-primary" type="submit">Plant it</button>
+        </div>
       </form>
-      <div class="plant-ideas" aria-label="Ideas">
-        <button type="button" data-idea="always saving me the last bite">the last bite</button>
-        <button type="button" data-idea="listening without fixing">listening</button>
-        <button type="button" data-idea="that terrible pun at breakfast">that pun</button>
-        <button type="button" data-idea="warming my side of the bed">warm feet</button>
-      </div>
 
       <div class="bed" data-bed aria-live="polite">
-        <div class="bed-sky" aria-hidden="true"></div>
         <div class="bed-row" data-row></div>
-        <div class="bed-soil" aria-hidden="true"></div>
       </div>
-      <p class="bed-count" data-count></p>
-    </section>
-
-    <!-- APP INSIDE -->
-    <section class="inside" aria-labelledby="inside-title">
-      <div class="inside-media">
-        <img src="assets/app-screen.webp" width="871" height="1805" alt="" loading="lazy" />
-      </div>
-      <div class="inside-copy">
-        <h2 id="inside-title">Small enough to keep doing. Big enough to matter.</h2>
-        <dl class="inside-list">
-          <div>
-            <dt>Garden</dt>
-            <dd>The home screen. Everything you’ve both planted, growing in one place.</dd>
-          </div>
-          <div>
-            <dt>Together</dt>
-            <dd>Built for two. Your partner sees what you planted, and you see theirs.</dd>
-          </div>
-          <div>
-            <dt>Moments</dt>
-            <dd>Look back on what you’ve said to each other, whenever you need the reminder.</dd>
-          </div>
-          <div>
-            <dt>Plant</dt>
-            <dd>One big button. Write a few words and it’s in the ground.</dd>
-          </div>
-        </dl>
-      </div>
+      <p class="bed-count" data-bed-count></p>
     </section>
 
     <!-- WAITLIST -->
     <section class="waitlist" id="waitlist" aria-labelledby="waitlist-title">
-      <svg class="waitlist-vine" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true"><path d="M-10 180 C 180 60, 320 220, 520 120 S 860 20, 1210 110" /></svg>
-      <div class="waitlist-inner">
-        <h2 id="waitlist-title">Your garden is waiting.</h2>
-        <p>Gratitude Garden is almost ready. Join the waitlist and we’ll send one email when you can plant your first flower.</p>
-        <a class="btn btn-light magnetic" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
-        <p class="waitlist-fine">One email at launch. No spam, ever.</p>
+      <div class="waitlist-marquee" aria-hidden="true">
+        <p data-marquee><span>Your garden is waiting ✿ Your garden is waiting ✿ Your garden is waiting ✿ </span><span>Your garden is waiting ✿ Your garden is waiting ✿ Your garden is waiting ✿ </span></p>
       </div>
-      <div class="waitlist-bed" data-waitlist-bed aria-hidden="true"></div>
+      <img class="waitlist-flower wf-1" src="assets/flowers/rose.webp" alt="" aria-hidden="true" loading="lazy" />
+      <img class="waitlist-flower wf-2" src="assets/flowers/sunflower.webp" alt="" aria-hidden="true" loading="lazy" />
+      <img class="waitlist-flower wf-3" src="assets/flowers/hydrangea.webp" alt="" aria-hidden="true" loading="lazy" />
+      <img class="waitlist-flower wf-4" src="assets/flowers/tulip.webp" alt="" aria-hidden="true" loading="lazy" />
+      <div class="waitlist-inner">
+        <h2 id="waitlist-title">Be one of the first couples to grow</h2>
+        <p>Gratitude Garden: Couples is coming to iOS and Android. Join the waitlist and we’ll email you when your garden is ready.</p>
+        <a class="btn btn-light" href="https://tally.so/r/1AoeGO" data-tally-open="1AoeGO" data-tally-emoji-text="🌱" data-tally-emoji-animation="wave">Join the waitlist</a>
+        <p class="waitlist-fine">No spam. Just a note when we’re ready to bloom.</p>
+      </div>
     </section>
 
-    <!-- CREATOR -->
-    <section class="creator" id="creator" aria-labelledby="creator-title">
-      <picture class="creator-photo">
-        <source srcset="assets/profile.webp" type="image/webp" />
-        <img src="profile.jpg" width="240" height="240" alt="Kamyab Khosravi" loading="lazy" />
-      </picture>
-      <div class="creator-copy">
-        <h2 id="creator-title">Made by Kamyab Khosravi</h2>
-        <p>I built Gratitude Garden from a simple idea: when we notice the good things in each other, they tend to grow. If you have thoughts, ideas, or just want to say hi, I’d love to hear from you.</p>
-        <a class="link-quiet" href="mailto:k.khosravi.dev@gmail.com">k.khosravi.dev@gmail.com</a>
+    <!-- MAKER -->
+    <section class="maker" id="maker" aria-labelledby="maker-title">
+      <div class="maker-photo" data-maker-photo>
+        <img src="assets/kamyab.webp" width="640" height="800" alt="Kamyab Khosravi, smiling, outdoors by the water" loading="lazy" />
+      </div>
+      <div class="maker-copy">
+        <span class="section-num">06</span>
+        <p class="maker-role">Founder &amp; developer</p>
+        <h2 id="maker-title">Kamyab Khosravi</h2>
+        <p class="maker-bio">I design and build Gratitude Garden for iOS and Android. It started with a simple idea: when we notice the good things in each other, they tend to grow. I wanted an app that makes saying them a small, daily habit — and makes it feel like something beautiful.</p>
+        <dl class="maker-facts">
+          <div><dt>Building</dt><dd>Gratitude Garden: Couples</dd></div>
+          <div><dt>Platforms</dt><dd>iOS &amp; Android</dd></div>
+          <div><dt>Made with</dt><dd>Kotlin Multiplatform</dd></div>
+        </dl>
+        <div class="maker-links">
+          <a class="btn btn-dark" href="mailto:k.khosravi.dev@gmail.com">Email me</a>
+          <a class="link-line" href="https://github.com/kamyab9k" rel="noopener" target="_blank">GitHub</a>
+        </div>
+        <p class="maker-sign" aria-hidden="true">— Kamyab</p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="16" cy="9" r="5.2"/><circle cx="22.7" cy="13.9" r="5.2"/><circle cx="20.1" cy="21.8" r="5.2"/><circle cx="11.9" cy="21.8" r="5.2"/><circle cx="9.3" cy="13.9" r="5.2"/></g><circle cx="16" cy="16" r="3.4" fill="#f5c543"/></svg>
-      <span>Gratitude Garden</span>
-    </a>
-    <p>Grow something good together.</p>
-    <small>© 2026 Gratitude Garden</small>
+    <div class="footer-top">
+      <a class="brand" href="#top"><img src="assets/app-icon.webp" alt="" width="36" height="36" /><span>Gratitude Garden</span></a>
+      <p>Small gratitudes grow a brighter tomorrow ♡</p>
+    </div>
+    <div class="footer-bottom">
+      <small>© 2026 Gratitude Garden</small>
+      <a href="mailto:k.khosravi.dev@gmail.com">k.khosravi.dev@gmail.com</a>
+    </div>
   </footer>
 
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
