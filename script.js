@@ -178,7 +178,7 @@
     /* hero: walk into the garden */
     const chars = $$('.hero-word .ch');
     const mid = (chars.length - 1) / 2;
-    gsap.set('[data-hero-tr]', { scaleX: -1 });
+    if (scenes) gsap.set('[data-hero-tr]', { scaleX: -1 });
     if (scenes) gsap.timeline({
       scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=130%', scrub: 0.6, pin: '.hero-stage', anticipatePin: 1 },
       defaults: { ease: 'none' },
