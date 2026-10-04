@@ -15,23 +15,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Nunito:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="assets/garden/home.webp" />
+  <link rel="preload" as="image" href="assets/garden/home.webp" imagesrcset="assets/garden/home-sm.webp 926w, assets/garden/home.webp 1852w" imagesizes="(max-width: 700px) 100vw, 120vw" />
   <link rel="stylesheet" href="style.css" />
   <script>document.documentElement.classList.add('js')</script>
   <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-
-  <!-- PRELOADER -->
-  <div class="loader" data-loader aria-hidden="true">
-    <div class="loader-row">
-      <span class="loader-brand">Gratitude Garden</span>
-      <span class="loader-count" data-count>0</span>
-    </div>
-    <img class="loader-flower" src="assets/flowers/heartbloom.webp" alt="" width="480" height="480" />
-    <div class="loader-line"><span data-loader-line></span></div>
-  </div>
 
   <div class="scroll-bar" aria-hidden="true"><span data-scroll-bar></span></div>
 
@@ -54,7 +44,7 @@
     <!-- HERO -->
     <section class="hero" id="top" data-hero aria-labelledby="hero-title">
       <div class="hero-stage">
-        <img class="hero-bg" data-hero-bg src="assets/garden/home.webp" width="926" height="1518" alt="" />
+        <img class="hero-bg" data-hero-bg src="assets/garden/home.webp" srcset="assets/garden/home-sm.webp 926w, assets/garden/home.webp 1852w" sizes="(max-width: 700px) 100vw, (orientation: portrait) 100vw, 120vw" width="1852" height="3036" alt="" fetchpriority="high" />
         <div class="hero-shade"></div>
         <canvas class="petals" data-petals aria-hidden="true"></canvas>
         <img class="hero-canopy" data-hero-canopy src="assets/garden/home_canopy.webp" alt="" aria-hidden="true" />
@@ -81,7 +71,7 @@
 
     <!-- STATEMENT -->
     <section class="statement" aria-label="The idea">
-      <p class="statement-text" data-split>Most couples slowly stop saying the small things. Gratitude Garden is a garden you share, where every thank-you becomes a flower — one you can both watch grow.</p>
+      <p class="statement-text" data-split>Every thank-you becomes a flower in a garden you share.</p>
     </section>
 
     <!-- FLOWER COLLECTION -->
@@ -90,12 +80,12 @@
         <div class="collection-head">
           <span class="collection-num" data-col-num>01</span>
           <h2 id="collection-title">Every flower<br />says something</h2>
-          <div class="collection-dots" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="collection-tier" aria-hidden="true"><span data-col-tier>Classic</span><span class="collection-dots"><i class="is-on"></i><i></i><i></i><i></i><i></i></span></div>
         </div>
         <div class="collection-bar" aria-hidden="true"><span data-col-bar></span></div>
 
         <div class="collection-slides">
-          <article class="flower-slide" data-tint="#fbe3e4">
+          <article class="flower-slide" data-tint="#fbe3e4" data-tier="Classic">
             <p class="slide-marquee" aria-hidden="true"><span>Rose Rose Rose Rose Rose Rose</span></p>
             <img class="slide-flower" src="assets/flowers/rose.webp" alt="Rose" width="480" height="480" loading="lazy" />
             <div class="slide-copy">
@@ -105,51 +95,41 @@
               <p class="slide-for"><span>Plant it for</span> anything that made you fall for them a little more</p>
             </div>
           </article>
-          <article class="flower-slide" data-tint="#fdf0cf">
-            <p class="slide-marquee" aria-hidden="true"><span>Sunflower Sunflower Sunflower Sunflower</span></p>
-            <img class="slide-flower" src="assets/flowers/sunflower.webp" alt="Sunflower" width="480" height="480" loading="lazy" />
-            <div class="slide-copy">
-              <h3>Sunflower</h3>
-              <p class="slide-meaning">Adoration and loyalty</p>
-              <p class="slide-story">Young sunflowers turn to follow the sun across the sky, always facing the light they love.</p>
-              <p class="slide-for"><span>Plant it for</span> how they always turn towards you</p>
-            </div>
-          </article>
-          <article class="flower-slide" data-tint="#fde2dc">
+          <article class="flower-slide" data-tint="#fde2dc" data-tier="Epic">
             <p class="slide-marquee" aria-hidden="true"><span>Tulip Tulip Tulip Tulip Tulip Tulip</span></p>
             <img class="slide-flower" src="assets/flowers/tulip.webp" alt="Tulip" width="480" height="480" loading="lazy" />
             <div class="slide-copy">
-              <h3>Tulip</h3>
+              <h3>Tulip <em class="rarity rarity-epic">Epic</em></h3>
               <p class="slide-meaning">Perfect love</p>
               <p class="slide-story">In 17th-century Holland a single tulip bulb could cost more than a house. A red tulip says “I love you”.</p>
               <p class="slide-for"><span>Plant it for</span> saying “I love you” in your own way</p>
             </div>
           </article>
-          <article class="flower-slide" data-tint="#ebe4f7">
-            <p class="slide-marquee" aria-hidden="true"><span>Lavender Lavender Lavender Lavender</span></p>
-            <img class="slide-flower" src="assets/flowers/lavender.webp" alt="Lavender" width="480" height="480" loading="lazy" />
+          <article class="flower-slide" data-tint="#e2e8fb" data-tier="Epic">
+            <p class="slide-marquee" aria-hidden="true"><span>Hydrangea Hydrangea Hydrangea Hydrangea Hydrangea Hydrangea</span></p>
+            <img class="slide-flower" src="assets/flowers/hydrangea.webp" alt="Hydrangea" width="480" height="480" loading="lazy" />
             <div class="slide-copy">
-              <h3>Lavender</h3>
-              <p class="slide-meaning">Calm and devotion</p>
-              <p class="slide-story">Its scent has been used to calm the mind since Roman times — a quiet, steady comfort.</p>
-              <p class="slide-for"><span>Plant it for</span> the peace you feel when you’re together</p>
+              <h3>Hydrangea <em class="rarity rarity-epic">Epic</em></h3>
+              <p class="slide-meaning">Heartfelt gratitude</p>
+              <p class="slide-story">One hydrangea head holds hundreds of tiny flowers, and its colour can shift from pink to blue with the soil it grows in.</p>
+              <p class="slide-for"><span>Plant it for</span> a big thank-you from the heart</p>
             </div>
           </article>
-          <article class="flower-slide" data-tint="#fbe6d6">
-            <p class="slide-marquee" aria-hidden="true"><span>Pansy Pansy Pansy Pansy Pansy Pansy</span></p>
-            <img class="slide-flower" src="assets/flowers/pansy.webp" alt="Pansy" width="480" height="480" loading="lazy" />
+          <article class="flower-slide" data-tint="#fde3d3" data-tier="Legendary">
+            <p class="slide-marquee" aria-hidden="true"><span>Flame Lily Flame Lily Flame Lily Flame Lily Flame Lily Flame Lily</span></p>
+            <img class="slide-flower" src="assets/flowers/flame_lily.webp" alt="Flame Lily" width="480" height="480" loading="lazy" />
             <div class="slide-copy">
-              <h3>Pansy</h3>
-              <p class="slide-meaning">You’re always on my mind</p>
-              <p class="slide-story">Its name comes from the French “pensée”, a thought. Its little face looks as if it’s thinking of someone.</p>
-              <p class="slide-for"><span>Plant it for</span> when they thought of you without being asked</p>
+              <h3>Flame Lily <em class="rarity rarity-legendary">Legendary</em></h3>
+              <p class="slide-meaning">Fiery love</p>
+              <p class="slide-story">The flame lily climbs towards the sun with petals curled like flames — a flower of glory, and of a love that burns bright.</p>
+              <p class="slide-for"><span>Plant it for</span> the spark they still bring</p>
             </div>
           </article>
-          <article class="flower-slide" data-tint="#f9dfe6">
+          <article class="flower-slide" data-tint="#f9dfe6" data-tier="Legendary">
             <p class="slide-marquee" aria-hidden="true"><span>Peony Peony Peony Peony Peony Peony</span></p>
             <img class="slide-flower" src="assets/flowers/peony.webp" alt="Peony" width="480" height="480" loading="lazy" />
             <div class="slide-copy">
-              <h3>Peony <em class="rarity">Legendary</em></h3>
+              <h3>Peony <em class="rarity rarity-legendary">Legendary</em></h3>
               <p class="slide-meaning">A happy life together</p>
               <p class="slide-story">In China the peony is the “king of flowers”, a wish for a happy marriage. A peony plant can live for a hundred years.</p>
               <p class="slide-for"><span>Plant it for</span> the life you are building together</p>
@@ -308,6 +288,7 @@
 
     <!-- PLANT DEMO -->
     <section class="plant" id="plant" aria-labelledby="plant-title">
+      <div class="plant-side">
       <div class="plant-head">
         <span class="section-num">05</span>
         <h2 id="plant-title">Plant your first one</h2>
@@ -331,11 +312,12 @@
           <button class="btn btn-primary" type="submit">Plant it</button>
         </div>
       </form>
+      <p class="bed-count" data-bed-count></p>
+      </div>
 
       <div class="bed" data-bed aria-live="polite">
         <div class="bed-row" data-row></div>
       </div>
-      <p class="bed-count" data-bed-count></p>
     </section>
 
     <!-- WAITLIST -->
@@ -358,7 +340,7 @@
     <!-- MAKER -->
     <section class="maker" id="maker" aria-labelledby="maker-title">
       <div class="maker-photo" data-maker-photo>
-        <img src="assets/kamyab.webp" width="640" height="800" alt="Kamyab Khosravi, smiling, outdoors by the water" loading="lazy" />
+        <img src="assets/kamyab.webp" width="912" height="1140" alt="Kamyab Khosravi, smiling, outdoors by the water" loading="lazy" />
       </div>
       <div class="maker-copy">
         <span class="section-num">06</span>
@@ -370,9 +352,15 @@
           <div><dt>Platforms</dt><dd>iOS &amp; Android</dd></div>
           <div><dt>Made with</dt><dd>Kotlin Multiplatform</dd></div>
         </dl>
-        <div class="maker-links">
-          <a class="btn btn-dark" href="mailto:k.khosravi.dev@gmail.com">Email me</a>
-          <a class="link-line" href="https://github.com/kamyab9k" rel="noopener" target="_blank">GitHub</a>
+        <div class="maker-contact">
+          <span class="maker-contact-label">Say hello</span>
+          <a class="maker-email" href="mailto:k.khosravi.dev@gmail.com?subject=Hi%20Kamyab%20%E2%80%93%20Gratitude%20Garden">k.khosravi.dev@gmail.com</a>
+          <div class="maker-links">
+            <a class="btn btn-dark" href="mailto:k.khosravi.dev@gmail.com?subject=Hi%20Kamyab%20%E2%80%93%20Gratitude%20Garden">Email me</a>
+            <button class="btn btn-outline" type="button" data-copy="k.khosravi.dev@gmail.com">Copy email</button>
+            <a class="link-line" href="https://github.com/kamyab9k" rel="noopener" target="_blank">GitHub</a>
+          </div>
+          <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
         </div>
         <p class="maker-sign" aria-hidden="true">— Kamyab</p>
       </div>

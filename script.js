@@ -65,6 +65,25 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- copy email ---------- */
+  $$('[data-copy]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const value = btn.dataset.copy;
+      const status = $('[data-copy-status]');
+      let ok = false;
+      try { await navigator.clipboard.writeText(value); ok = true; } catch (e) {
+        const t = document.createElement('textarea');
+        t.value = value; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+        t.remove();
+      }
+      btn.textContent = ok ? 'Copied ✓' : 'Copy email';
+      if (status) status.textContent = ok ? 'Email address copied — paste it into your mail app.' : `Copy this address: ${value}`;
+      setTimeout(() => { btn.textContent = 'Copy email'; }, 2400);
+    });
+  });
+
   /* ---------- magnetic buttons ---------- */
   if (finePointer && !reduceMotion) {
     $$('.btn-primary, .btn-light').forEach((btn) => {
@@ -126,71 +145,20 @@
     requestAnimationFrame(frame);
   };
 
-  /* ---------- loader ---------- */
-  const loader = $('[data-loader]');
-  const heroImg = $('[data-hero-bg]');
-  const imgReady = (img) => new Promise((res) => {
-    if (!img || (img.complete && img.naturalWidth)) return res();
-    img.addEventListener('load', res, { once: true });
-    img.addEventListener('error', res, { once: true });
-  });
-  const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
-  const timeout = (ms) => new Promise((r) => setTimeout(r, ms));
 
   const heroIntro = () => {
     if (!motion) return;
-    const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-    tl.fromTo('.hero-stage', { clipPath: 'inset(12% 9% 12% 9% round 32px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1.6, ease: 'expo.inOut' })
-      .from('[data-hero-bg]', { scale: 1.35, duration: 2.2 }, 0)
-      .from('[data-hero-canopy]', { yPercent: -40, opacity: 0, duration: 1.8 }, 0.5)
-      .from('[data-hero-tl]', { yPercent: 50, duration: 1.8 }, 0.55)
-      .from('[data-hero-tr]', { yPercent: 50, duration: 1.8 }, 0.6)
-      .from('.hero-word .ch', { yPercent: 110, opacity: 0, rotate: 6, duration: 1.4, stagger: 0.035 }, 0.75)
-      .from('[data-hero-kicker]', { opacity: 0, y: 16, duration: 1 }, 1.0)
-      .from('[data-hero-foot] p', { opacity: 0, y: 24, duration: 1 }, 1.2)
-      .from('[data-hero-foot] .btn', { opacity: 0, duration: 1 }, 1.3)
-      .from('.hero-scroll', { opacity: 0, duration: 1 }, 1.4);
+    gsap.timeline({ defaults: { ease: 'expo.out' } })
+      .from('[data-hero-canopy]', { yPercent: -30, opacity: 0, duration: 1.6 }, 0)
+      .from('[data-hero-tl]', { yPercent: 40, duration: 1.6 }, 0.05)
+      .from('[data-hero-tr]', { yPercent: 40, duration: 1.6 }, 0.1)
+      .from('.hero-word .ch', { yPercent: 100, opacity: 0, rotate: 6, duration: 1.2, stagger: 0.03 }, 0.1)
+      .from('[data-hero-kicker]', { opacity: 0, y: 16, duration: 1 }, 0.3)
+      .from('[data-hero-foot] p', { opacity: 0, y: 24, duration: 1 }, 0.5)
+      .from('[data-hero-foot] .btn', { opacity: 0, duration: 1 }, 0.6)
+      .from('.hero-scroll', { opacity: 0, duration: 1 }, 0.7);
   };
-
-  const finishLoading = () => {
-    body.classList.remove('is-loading');
-    if (lenis) lenis.start();
-    startPetals();
-    heroIntro();
-    try { sessionStorage.setItem('gg-seen', '1'); } catch (e) { /* storage blocked */ }
-  };
-
-  if (loader && motion) {
-    body.classList.add('is-loading');
-    if (lenis) lenis.stop();
-    window.scrollTo(0, 0);
-    let seen = false;
-    try { seen = sessionStorage.getItem('gg-seen') === '1'; } catch (e) { /* storage blocked */ }
-    const counter = $('[data-count]', loader);
-    const line = $('[data-loader-line]', loader);
-    const state = { v: 0 };
-    const count = gsap.to(state, {
-      v: 100, duration: seen ? 0.7 : 1.9, ease: 'power2.inOut',
-      onUpdate: () => {
-        counter.textContent = Math.round(state.v);
-        line.style.transform = `scaleX(${state.v / 100})`;
-      },
-    });
-    gsap.to('.loader-flower', { scale: 1, opacity: 1, duration: seen ? 0.7 : 1.9, ease: 'power2.inOut' });
-    Promise.race([
-      Promise.all([count.then(), imgReady(heroImg), fontsReady]),
-      timeout(4000),
-    ]).then(() => {
-      gsap.timeline({ onComplete: () => loader.remove() })
-        .to('.loader-flower', { scale: 2.2, opacity: 0, duration: 0.7, ease: 'power2.in' })
-        .to('.loader-row, .loader-line', { opacity: 0, y: -20, duration: 0.5, ease: 'power2.in' }, 0)
-        .to(loader, { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, 0.35)
-        .add(finishLoading, 0.55);
-    });
-  } else {
-    if (loader) loader.remove();
-    startPetals();
-  }
+  startPetals();
 
   /* ---------- scroll-driven scenes ---------- */
   if (motion) {
@@ -204,7 +172,7 @@
       scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=130%', scrub: 0.6, pin: '.hero-stage', anticipatePin: 1 },
       defaults: { ease: 'none' },
     })
-      .to('[data-hero-bg]', { scale: 1.7, yPercent: 6, duration: 1 }, 0)
+      .to('[data-hero-bg]', { scale: 1.35, yPercent: 4, duration: 1 }, 0)
       .to('[data-hero-canopy]', { x: () => -window.innerWidth * 0.25, y: () => -window.innerHeight * 0.55, scale: 1.5, duration: 1 }, 0)
       .to('[data-hero-tl]', { x: () => -window.innerWidth * 0.45, y: () => window.innerHeight * 0.2, scale: 1.4, duration: 1 }, 0)
       .to('[data-hero-tr]', { x: () => window.innerWidth * 0.45, y: () => window.innerHeight * 0.2, scaleX: -1.4, scaleY: 1.4, duration: 1 }, 0)
@@ -226,6 +194,7 @@
     const numEl = $('[data-col-num]');
     const dots = $$('.collection-dots i');
     const colBar = $('[data-col-bar]');
+    const tierEl = $('[data-col-tier]');
     const marquees = slides.map((s) => $('.slide-marquee', s));
     const parts = (s) => ({ flower: $('.slide-flower', s), copy: $$('.slide-copy > *', s), mq: $('.slide-marquee', s) });
     gsap.set(slides, { visibility: 'visible' });
@@ -243,7 +212,10 @@
       current = i;
       numEl.textContent = String(i + 1).padStart(2, '0');
       dots.forEach((d, k) => d.classList.toggle('is-on', k === i));
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
       collection.style.backgroundColor = slides[i].dataset.tint;
+      collection.dataset.tier = slides[i].dataset.tier;
+      if (tierEl) tierEl.textContent = slides[i].dataset.tier;
     };
     setActive(0);
     const colTl = gsap.timeline({
@@ -334,7 +306,7 @@
     gsap.from('.waitlist-inner > :not(.btn)', { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: 0.1, scrollTrigger: { trigger: '.waitlist-inner', start: 'top 82%' } });
 
     /* maker portrait parallax + entrance */
-    gsap.fromTo('[data-maker-photo] img', { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.maker', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.fromTo('[data-maker-photo] img', { yPercent: -2.5 }, { yPercent: 2.5, ease: 'none', scrollTrigger: { trigger: '.maker', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.from('[data-maker-photo]', { clipPath: 'inset(30% 20% 30% 20% round 28px)', duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.maker', start: 'top 75%' } });
     gsap.from('.maker-copy > *', { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.07, scrollTrigger: { trigger: '.maker-copy', start: 'top 80%' } });
 
@@ -343,6 +315,7 @@
       gsap.from(h, { y: 60, opacity: 0, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } });
     });
 
+    heroIntro();
     window.addEventListener('load', () => ScrollTrigger.refresh());
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
   }
@@ -353,34 +326,45 @@
   const countEl = $('[data-bed-count]');
   if (!row || !form) return;
   const input = $('#gratitude', form);
-  // spots where flowers sit in the bed: [x%, y% of the flower's base]
-  const spots = [[16, 62], [38, 86], [60, 58], [84, 82], [28, 40], [72, 36], [50, 95]];
-  const maxFlowers = () => (window.innerWidth < 640 ? 4 : 7);
-  let spotIndex = 0;
+  // lawn spots in the bed picture (x%, y% of the flower's base), checked against the art so
+  // nothing lands on the path, rocks or fence. Spots near the top show their note below.
+  const spots = [[31.3, 67.8], [74.5, 62.2], [71.3, 94.4], [85.3, 43.3], [67, 23.3], [11.9, 97.8], [92.9, 88.9], [89.6, 18.9]];
+  const used = new Map(); // spot index -> element
+  let nextSpot = 0;
   let planted = 0;
 
   const plant = (flower, text) => {
-    const existing = $$('.bed-flower:not(.is-leaving)', row);
-    if (existing.length >= maxFlowers()) {
-      const old = existing[0];
+    let idx = -1;
+    for (let k = 0; k < spots.length; k++) {
+      const cand = (nextSpot + k) % spots.length;
+      if (!used.has(cand)) { idx = cand; break; }
+    }
+    if (idx === -1) {
+      // every spot taken: replace the oldest flower
+      idx = nextSpot % spots.length;
+      const old = used.get(idx);
       old.classList.add('is-leaving');
       setTimeout(() => old.remove(), 420);
     }
-    const [x, y] = spots[spotIndex++ % Math.min(spots.length, maxFlowers())];
+    nextSpot = idx + 1;
+    const [x, y] = spots[idx];
     const el = document.createElement('div');
-    el.className = 'bed-flower';
+    el.className = 'bed-flower' + (y < 35 ? ' note-below' : '');
     el.style.left = x + '%';
     el.style.top = y + '%';
     el.style.zIndex = String(Math.round(y));
-    el.innerHTML = '<span class="plant-note"></span><img alt="" />';
-    const note = $('.plant-note', el);
+    const img = document.createElement('img');
+    img.alt = '';
+    img.src = `assets/flowers/${flower}.webp`;
+    const note = document.createElement('span');
+    note.className = 'plant-note';
     note.textContent = text + ' ';
     const heart = document.createElement('b');
     heart.textContent = '♥';
     note.appendChild(heart);
-    const img = $('img', el);
-    img.src = `assets/flowers/${flower}.webp`;
+    el.append(img, note);
     row.appendChild(el);
+    used.set(idx, el);
   };
 
   const updateCount = () => {
