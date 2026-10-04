@@ -366,6 +366,33 @@ html:not(.motion) .hero-tree-r { transform: scaleX(-1); }
   .wf-4 { width: 50px; right: 8%; bottom: 4%; }
 }
 
+/* ---------- phones & tablets: native scrolling, no pinned scenes ---------- */
+.swipe-hint, .hint-mobile { display: none; }
+html.mobile .hint-desktop { display: none; }
+html.mobile .hint-mobile { display: inline; }
+html.mobile .hero-stage { height: 100vh; height: 100svh; }
+html.mobile .hero-scroll, html.mobile .hero-second, html.mobile .hero-tint { display: none; }
+html.mobile .hero-tree-r { transform: scaleX(-1); }
+html.mobile .collection-tier { display: flex; grid-column: 1 / -1; justify-content: space-between; padding: 16px 0 0; }
+html.mobile .swipe-hint { display: inline-flex; align-items: center; gap: 10px; font: 800 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+html.mobile .swipe-hint::after { content: "→"; letter-spacing: 0; font-size: 15px; }
+html.mobile .collection-dots { display: none; }
+html.mobile .collection-stage { padding-bottom: 56px; }
+html.mobile .collection-slides {
+  display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 calc(var(--gutter) * -1);
+}
+html.mobile .collection-slides::-webkit-scrollbar { display: none; }
+html.mobile .flower-slide { flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; grid-template-columns: 1fr; gap: 10px; padding: 26px var(--gutter) 6px; text-align: center; }
+html.mobile .slide-flower { width: min(60vw, 280px); }
+html.mobile .slide-copy h3 { font-size: clamp(38px, 10vw, 54px); }
+html.mobile .slide-story, html.mobile .slide-for { margin-left: auto; margin-right: auto; font-size: 16px; }
+html.mobile .more-pin { scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scroll-padding-left: var(--gutter); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+html.mobile .more-pin::-webkit-scrollbar { display: none; }
+html.mobile .more-intro, html.mobile .more-panel { scroll-snap-align: start; }
+html.mobile .more-track { gap: 28px; }
+html.mobile .more-intro { width: 78vw; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
 }

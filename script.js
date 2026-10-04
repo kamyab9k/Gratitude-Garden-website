@@ -10,7 +10,17 @@
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const rand = (a, b) => a + Math.random() * (b - a);
 
-  if (motion) root.classList.add('motion');
+  // Full scroll scenes (pinning, zooms, smooth scroll) only on desktop-class devices.
+  // Phones and tablets get native scrolling with light, non-blocking reveals.
+  const desktopQuery = '(min-width: 821px) and (hover: hover) and (pointer: fine)';
+  const desktop = window.matchMedia(desktopQuery).matches;
+  const scenes = motion && desktop;
+  root.classList.add(scenes ? 'motion' : 'mobile');
+  let resizeT;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(() => { if (window.matchMedia(desktopQuery).matches !== desktop) window.location.reload(); }, 250);
+  });
 
   /* ---------- text splitting ---------- */
   $$('.hero-word').forEach((w) => {
@@ -27,7 +37,7 @@
   if (motion) {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
-    if (window.Lenis) {
+    if (scenes && window.Lenis) {
       lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((t) => lenis.raf(t * 1000));
@@ -148,7 +158,7 @@
 
 
   const heroIntro = () => {
-    if (!motion) return;
+    if (!scenes) return;
     gsap.timeline({ defaults: { ease: 'expo.out' } })
       .from('[data-hero-canopy]', { yPercent: -30, opacity: 0, duration: 1.6 }, 0)
       .from('[data-hero-tl]', { yPercent: 40, duration: 1.6 }, 0.05)
@@ -169,7 +179,7 @@
     const chars = $$('.hero-word .ch');
     const mid = (chars.length - 1) / 2;
     gsap.set('[data-hero-tr]', { scaleX: -1 });
-    gsap.timeline({
+    if (scenes) gsap.timeline({
       scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=130%', scrub: 0.6, pin: '.hero-stage', anticipatePin: 1 },
       defaults: { ease: 'none' },
     })
@@ -198,6 +208,7 @@
     const tierEl = $('[data-col-tier]');
     const marquees = slides.map((s) => $('.slide-marquee', s));
     const parts = (s) => ({ flower: $('.slide-flower', s), copy: $$('.slide-copy > *', s), mq: $('.slide-marquee', s) });
+    if (scenes) {
     gsap.set(slides, { visibility: 'visible' });
     gsap.set($$('.slide-flower', collection), { xPercent: -50, yPercent: -50, x: 0, y: 0 });
     slides.forEach((s, i) => {
@@ -207,6 +218,7 @@
       gsap.set(p.copy, { opacity: 0, y: 40 });
       gsap.set(p.mq, { opacity: 0 });
     });
+    }
     let current = -1;
     const setActive = (i) => {
       if (i === current) return;
@@ -219,6 +231,21 @@
       if (tierEl) tierEl.textContent = slides[i].dataset.tier;
     };
     setActive(0);
+    if (!scenes) {
+      // phones: native swipe carousel; keep the counter, dots and colour in step
+      const strip = $('.collection-slides', collection);
+      let raf = 0;
+      strip.addEventListener('scroll', () => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const t = strip.scrollLeft / Math.max(1, strip.clientWidth);
+          setActive(clamp(Math.round(t), 0, n - 1));
+          colBar.style.transform = `scaleX(${(t + 1) / n})`;
+        });
+      }, { passive: true });
+    }
+    if (scenes) {
     const colTl = gsap.timeline({
       defaults: { ease: 'power2.inOut' },
       scrollTrigger: {
@@ -245,6 +272,7 @@
         .to(inn.mq, { opacity: 1, duration: 0.4 }, at + 0.1);
     }
     colTl.to({}, { duration: 0.01 }, n - 1);
+    }
 
     /* garden path: each step plants a flower as you walk past it */
     $$('.path-step').forEach((step) => {
@@ -252,7 +280,9 @@
       const note = $('.plant-note', step);
       const text = $('.step-text', step);
       const side = step.dataset.side === 'left' ? -1 : 1;
-      gsap.timeline({ scrollTrigger: { trigger: step, start: 'top 82%', end: 'top 42%', scrub: 0.5 } })
+      gsap.timeline({ scrollTrigger: scenes
+        ? { trigger: step, start: 'top 82%', end: 'top 42%', scrub: 0.5 }
+        : { trigger: step, start: 'top 78%', toggleActions: 'play none none none' } })
         .fromTo(img, { scale: 0, rotate: -14 * side }, { scale: 1, rotate: 0, ease: 'back.out(1.6)', duration: 0.6 }, 0)
         .fromTo(note, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, ease: 'back.out(2)', duration: 0.35 }, 0.4)
         .fromTo(text, { opacity: 0, x: isWide() ? 50 * side : 0, y: isWide() ? 0 : 30 }, { opacity: 1, x: 0, y: 0, ease: 'power2.out', duration: 0.6 }, 0.1);
@@ -274,6 +304,7 @@
     });
 
     /* more: horizontal scroll */
+    if (scenes) {
     const track = $('[data-more-track]');
     const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
     const hTween = gsap.to(track, {
@@ -286,6 +317,7 @@
         scrollTrigger: { trigger: panel, containerAnimation: hTween, start: 'left right', end: 'right left', scrub: true },
       });
     });
+    }
 
     /* waitlist marquee reacts to scroll speed */
     const marquee = $('[data-marquee]');
@@ -298,7 +330,7 @@
         gsap.to(loop, { timeScale: v < 0 ? -1 : 1, duration: 1.2, delay: 0.2, overwrite: false });
       },
     });
-    $$('.waitlist-flower').forEach((f, i) => {
+    if (scenes) $$('.waitlist-flower').forEach((f, i) => {
       gsap.fromTo(f, { y: 160 + i * 40, rotate: i % 2 ? 25 : -25 }, {
         y: -120 - i * 30, rotate: i % 2 ? -10 : 10, ease: 'none',
         scrollTrigger: { trigger: '.waitlist', start: 'top bottom', end: 'bottom top', scrub: true },
@@ -307,7 +339,7 @@
     gsap.from('.waitlist-inner > :not(.btn)', { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: 0.1, scrollTrigger: { trigger: '.waitlist-inner', start: 'top 82%' } });
 
     /* maker portrait parallax + entrance */
-    gsap.fromTo('[data-maker-photo] img', { yPercent: -2.5 }, { yPercent: 2.5, ease: 'none', scrollTrigger: { trigger: '.maker', start: 'top bottom', end: 'bottom top', scrub: true } });
+    if (scenes) gsap.fromTo('[data-maker-photo] img', { yPercent: -2.5 }, { yPercent: 2.5, ease: 'none', scrollTrigger: { trigger: '.maker', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.from('[data-maker-photo]', { clipPath: 'inset(30% 20% 30% 20% round 28px)', duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.maker', start: 'top 75%' } });
     gsap.from('.maker-copy > *', { y: 40, opacity: 0, duration: 1.1, ease: 'expo.out', stagger: 0.07, scrollTrigger: { trigger: '.maker-copy', start: 'top 80%' } });
 
