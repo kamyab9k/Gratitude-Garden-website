@@ -26,6 +26,7 @@
   let lenis = null;
   if (motion) {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
     if (window.Lenis) {
       lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true });
       lenis.on('scroll', ScrollTrigger.update);
