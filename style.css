@@ -121,23 +121,23 @@ p { margin: 0; }
 /* golden "on fire" offer badge */
 @property --fire-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
 .offer-fire { position: relative; width: fit-content; max-width: 100%; margin: 0 auto 30px; }
-.fire-canvas { position: absolute; z-index: 0; left: -40px; top: -72px; width: calc(100% + 80px); height: calc(100% + 98px); pointer-events: none; }
+.fire-canvas { position: absolute; z-index: 0; left: -40px; top: -44px; width: calc(100% + 80px); height: calc(100% + 70px); pointer-events: none; }
 .offer {
   position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0;
   padding: 10px 22px 10px 12px; border-radius: 999px; border: 2px solid transparent;
   background:
     linear-gradient(#fffaf0, #ffefc9) padding-box,
-    conic-gradient(from var(--fire-angle), #ffe27a, #ff9d1c, #fff6c4, #ffbf33, #ff8a00, #ffe27a) border-box;
-  box-shadow: 0 0 16px rgba(255, 170, 40, .5), 0 0 42px rgba(255, 110, 20, .24), 0 12px 26px -14px rgba(160, 70, 0, .6);
+    conic-gradient(from var(--fire-angle), #f3cf72, #e9a23a, #f8e3a0, #e9b350, #e49a30, #f3cf72) border-box;
+  box-shadow: 0 0 10px rgba(240, 170, 60, .3), 0 10px 24px -14px rgba(160, 70, 0, .5);
   text-align: left; font-size: 15px; line-height: 1.3; color: #3b2100;
-  animation: fireSpin 4s linear infinite, fireGlow 1.7s ease-in-out infinite alternate;
+  animation: fireSpin 14s linear infinite, fireGlow 3.2s ease-in-out infinite alternate;
 }
 @keyframes fireSpin { to { --fire-angle: 360deg; } }
 @keyframes fireGlow {
-  from { box-shadow: 0 0 14px rgba(255, 170, 40, .42), 0 0 36px rgba(255, 110, 20, .2), 0 12px 26px -14px rgba(160, 70, 0, .6); }
-  to   { box-shadow: 0 0 24px rgba(255, 190, 60, .72), 0 0 64px rgba(255, 120, 20, .38), 0 12px 26px -14px rgba(160, 70, 0, .6); }
+  from { box-shadow: 0 0 8px rgba(240, 170, 60, .22), 0 10px 24px -14px rgba(160, 70, 0, .5); }
+  to   { box-shadow: 0 0 16px rgba(240, 175, 70, .42), 0 10px 24px -14px rgba(160, 70, 0, .5); }
 }
-.offer-mark { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #ffe98a, #ff9d1c 72%); color: #fff; box-shadow: 0 0 12px rgba(255, 150, 20, .85); }
+.offer-mark { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #ffe98a, #ff9d1c 72%); color: #fff; box-shadow: 0 0 8px rgba(240, 160, 50, .5); }
 .offer strong { display: block; font-weight: 800; }
 .offer em { font-style: normal; font-size: 13px; font-weight: 700; color: #8a5a12; }
 .hero-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 28px; margin-top: 26px; }
