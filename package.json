@@ -1,0 +1,14 @@
+{
+  "name": "gratitude-garden-website",
+  "version": "1.0.0",
+  "description": "Waitlist website for Gratitude Garden, an app for couples.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
