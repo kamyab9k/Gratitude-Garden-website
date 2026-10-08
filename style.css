@@ -99,13 +99,12 @@ p { margin: 0; }
 
 /* ---------- hero ---------- */
 .hero {
-  position: relative; overflow: hidden; text-align: center;
-  padding: clamp(100px, 13vh, 132px) var(--gutter) 0;
+  position: relative; overflow: hidden; overflow-x: clip; overflow-y: visible; text-align: center;
+  padding: clamp(100px, 13vh, 132px) var(--gutter) clamp(90px, 12vh, 130px);
   background:
     radial-gradient(ellipse 70% 50% at 50% 0%, #fde3e1 0%, rgba(253, 227, 225, 0) 70%),
     linear-gradient(180deg, #fbece8 0%, var(--bg) 100%);
 }
-.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: clamp(70px, 10vw, 140px); z-index: 4; pointer-events: none; background: linear-gradient(rgba(251, 243, 239, 0), var(--bg)); }
 .petals { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 4; }
 .hero-copy { position: relative; z-index: 3; max-width: 1040px; margin: 0 auto; }
 .hero-copy > * { animation: riseIn .9s var(--ease) both; }
@@ -119,15 +118,28 @@ p { margin: 0; }
 .hero-title em { font-style: italic; color: var(--petal); }
 .hero-sub { margin: 22px auto 0; max-width: 34em; color: var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); }
 
+/* golden "on fire" offer badge */
+@property --fire-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.offer-fire { position: relative; width: fit-content; max-width: 100%; margin: 0 auto 30px; }
+.fire-canvas { position: absolute; z-index: 0; left: -40px; top: -72px; width: calc(100% + 80px); height: calc(100% + 98px); pointer-events: none; }
 .offer {
-  display: inline-flex; align-items: center; gap: 12px; max-width: 100%;
-  margin: 0 auto 26px; padding: 10px 20px 10px 12px; border-radius: 999px;
-  background: #fff; border: 1px solid rgba(201, 68, 94, .22); box-shadow: 0 10px 28px -16px rgba(201, 68, 94, .5);
-  text-align: left; font-size: 15px; line-height: 1.3; color: var(--ink);
+  position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 12px; max-width: 100%; margin: 0;
+  padding: 10px 22px 10px 12px; border-radius: 999px; border: 2px solid transparent;
+  background:
+    linear-gradient(#fffaf0, #ffefc9) padding-box,
+    conic-gradient(from var(--fire-angle), #ffe27a, #ff9d1c, #fff6c4, #ffbf33, #ff8a00, #ffe27a) border-box;
+  box-shadow: 0 0 16px rgba(255, 170, 40, .5), 0 0 42px rgba(255, 110, 20, .24), 0 12px 26px -14px rgba(160, 70, 0, .6);
+  text-align: left; font-size: 15px; line-height: 1.3; color: #3b2100;
+  animation: fireSpin 4s linear infinite, fireGlow 1.7s ease-in-out infinite alternate;
 }
-.offer-mark { display: grid; place-items: center; width: 30px; height: 30px; flex: none; border-radius: 50%; background: var(--blossom); color: var(--petal); font-size: 16px; }
+@keyframes fireSpin { to { --fire-angle: 360deg; } }
+@keyframes fireGlow {
+  from { box-shadow: 0 0 14px rgba(255, 170, 40, .42), 0 0 36px rgba(255, 110, 20, .2), 0 12px 26px -14px rgba(160, 70, 0, .6); }
+  to   { box-shadow: 0 0 24px rgba(255, 190, 60, .72), 0 0 64px rgba(255, 120, 20, .38), 0 12px 26px -14px rgba(160, 70, 0, .6); }
+}
+.offer-mark { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 50%; background: radial-gradient(circle at 35% 28%, #ffe98a, #ff9d1c 72%); color: #fff; box-shadow: 0 0 12px rgba(255, 150, 20, .85); }
 .offer strong { display: block; font-weight: 800; }
-.offer em { font-style: normal; font-size: 13px; color: var(--ink-2); }
+.offer em { font-style: normal; font-size: 13px; font-weight: 700; color: #8a5a12; }
 .hero-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 28px; margin-top: 26px; }
 
 /* ---------- hero phones ---------- */
@@ -135,7 +147,7 @@ p { margin: 0; }
   --c: clamp(224px, 25vw, 350px);
   position: relative; z-index: 2;
   display: flex; justify-content: center; align-items: flex-end;
-  margin: clamp(36px, 5vh, 56px) auto calc(var(--c) * -.22);
+  margin: clamp(36px, 5vh, 56px) auto 0;
 }
 .phone {
   --w: var(--c); --ty: 0px; --rot: 0deg;
@@ -311,9 +323,7 @@ p { margin: 0; }
 .waitlist-inner { position: relative; z-index: 2; max-width: 760px; margin: clamp(30px, 6vh, 60px) auto 0; padding: 0 var(--gutter); text-align: center; }
 .waitlist h2 { font-size: clamp(42px, 5.6vw, 88px); line-height: 1; }
 .waitlist-inner > p:not(.waitlist-fine) { margin: 26px auto 40px; max-width: 30em; color: rgba(246, 238, 230, .78); font-size: clamp(17px, 1.3vw, 20px); }
-.waitlist .waitlist-inner > p.offer { margin: 0 auto 30px; max-width: 100%; font-size: 15px; color: var(--cream); background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .26); box-shadow: none; }
-.waitlist .waitlist-inner > p.offer em { color: rgba(246, 238, 230, .7); }
-.waitlist .offer-mark { background: rgba(244, 182, 194, .22); color: var(--blossom); }
+.waitlist .offer-fire { margin: 6px auto 38px; }
 .waitlist-fine { margin-top: 18px; font-size: 14px; color: rgba(246, 238, 230, .55); }
 
 /* ---------- maker ---------- */
@@ -388,7 +398,8 @@ p { margin: 0; }
   .hero { padding-top: 92px; }
   .hero-title { font-size: clamp(40px, 4.4vw, 62px); }
   .hero-sub { margin-top: 16px; font-size: 17px; }
-  .offer { margin-bottom: 18px; padding-top: 8px; padding-bottom: 8px; }
+  .offer-fire { margin-bottom: 18px; }
+  .offer { padding-top: 8px; padding-bottom: 8px; }
   .hero-actions { margin-top: 20px; }
   .phones { margin-top: 26px; }
 }
