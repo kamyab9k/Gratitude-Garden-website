@@ -23,10 +23,6 @@
   });
 
   /* ---------- text splitting ---------- */
-  $$('.hero-word').forEach((w) => {
-    w.setAttribute('aria-hidden', 'true');
-    w.innerHTML = [...w.textContent].map((c) => `<span class="ch">${c}</span>`).join('');
-  });
   const statement = $('[data-split]');
   if (statement) {
     statement.innerHTML = statement.textContent.trim().split(/\s+/).map((w) => `<span class="w">${w}</span>`).join(' ');
@@ -59,14 +55,13 @@
   /* ---------- nav + progress ---------- */
   const nav = $('[data-nav]');
   const bar = $('[data-scroll-bar]');
-  const firstSection = $('.statement');
   let lastY = window.scrollY;
   const onScroll = () => {
     const y = window.scrollY;
     const max = root.scrollHeight - window.innerHeight;
     if (bar) bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    if (nav && firstSection) {
-      const solid = firstSection.getBoundingClientRect().top < 90;
+    if (nav) {
+      const solid = y > 40;
       nav.classList.toggle('is-solid', solid);
       if (solid && y > lastY + 6) nav.classList.add('is-hidden');
       else if (y < lastY - 6 || !solid) nav.classList.remove('is-hidden');
@@ -157,40 +152,11 @@
   };
 
 
-  const heroIntro = () => {
-    if (!scenes) return;
-    gsap.timeline({ defaults: { ease: 'expo.out' } })
-      .from('[data-hero-canopy]', { yPercent: -30, opacity: 0, duration: 1.6 }, 0)
-      .from('[data-hero-tl]', { yPercent: 40, duration: 1.6 }, 0.05)
-      .from('[data-hero-tr]', { yPercent: 40, duration: 1.6 }, 0.1)
-      .from('.hero-word .ch', { yPercent: 100, opacity: 0, rotate: 6, duration: 1.2, stagger: 0.03 }, 0.1)
-      .from('[data-hero-kicker]', { opacity: 0, y: 16, duration: 1 }, 0.3)
-      .from('[data-hero-foot] p', { opacity: 0, y: 24, duration: 1 }, 0.5)
-      .from('[data-hero-foot] .btn', { opacity: 0, duration: 1 }, 0.6)
-      .from('.hero-scroll', { opacity: 0, duration: 1 }, 0.7);
-  };
   startPetals();
 
   /* ---------- scroll-driven scenes ---------- */
   if (motion) {
     const isWide = () => window.innerWidth > 1000;
-
-    /* hero: walk into the garden */
-    const chars = $$('.hero-word .ch');
-    const mid = (chars.length - 1) / 2;
-    if (scenes) gsap.set('[data-hero-tr]', { scaleX: -1 });
-    if (scenes) gsap.timeline({
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: '+=130%', scrub: 0.6, pin: '.hero-stage', anticipatePin: 1 },
-      defaults: { ease: 'none' },
-    })
-      .to('[data-hero-bg]', { scale: 1.35, yPercent: 4, duration: 1 }, 0)
-      .to('[data-hero-canopy]', { x: () => -window.innerWidth * 0.25, y: () => -window.innerHeight * 0.55, scale: 1.5, duration: 1 }, 0)
-      .to('[data-hero-tl]', { x: () => -window.innerWidth * 0.45, y: () => window.innerHeight * 0.2, scale: 1.4, duration: 1 }, 0)
-      .to('[data-hero-tr]', { x: () => window.innerWidth * 0.45, y: () => window.innerHeight * 0.2, scaleX: -1.4, scaleY: 1.4, duration: 1 }, 0)
-      .to('[data-hero-tint]', { opacity: 1, duration: 0.35 }, 0.12)
-      .to(chars, { x: (i) => (i - mid) * window.innerWidth * 0.018, opacity: 0, duration: 0.45, stagger: { each: 0.01, from: 'center' } }, 0.02)
-      .to('[data-hero-kicker], [data-hero-foot], .hero-scroll', { opacity: 0, duration: 0.25 }, 0)
-      .fromTo('[data-hero-second]', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3 }, 0.32);
 
     /* statement: words light up as you read */
     gsap.fromTo('.statement-text .w', { opacity: 0.12 }, {
@@ -399,7 +365,6 @@
       gsap.from(h, { y: 60, opacity: 0, duration: 1.3, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } });
     });
 
-    heroIntro();
     window.addEventListener('load', () => ScrollTrigger.refresh());
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
   }
