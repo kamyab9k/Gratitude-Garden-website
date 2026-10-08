@@ -171,27 +171,18 @@
         parts = [];
       };
 
-      // flames start on the pill's outline: mostly the top edge and the rounded ends
+      // small, soft flames lick up from the top edge only, denser toward the middle
       const spawn = () => {
-        const r = box.h / 2, u = Math.random();
-        let x, y, vx = 0;
-        if (u < 0.58) {
-          x = box.x + r + Math.random() * Math.max(0, box.w - 2 * r); y = box.y + 3;
-        } else if (u < 0.96) {
-          const side = Math.random() < 0.5 ? -1 : 1;
-          const th = -Math.PI / 2 + Math.random() * Math.PI * 0.66;
-          const cx = side > 0 ? box.x + box.w - r : box.x + r;
-          x = cx + side * r * Math.cos(th); y = box.y + r + r * Math.sin(th);
-          vx = side * Math.cos(th) * 14;
-        } else {
-          x = box.x + r + Math.random() * Math.max(0, box.w - 2 * r); y = box.y + box.h - 2;
-        }
-        const ember = Math.random() < 0.16;
+        const r = box.h / 2;
+        const span = Math.max(0, box.w - 2 * r);
+        const x = box.x + r + (0.5 + (Math.random() + Math.random() - 1) * 0.5) * span;
+        const y = box.y + 4;
+        const ember = Math.random() < 0.06;
         parts.push({
-          x, y, vx: vx + (Math.random() - 0.5) * 8,
-          vy: ember ? -(46 + Math.random() * 60) : -(24 + Math.random() * 38),
-          age: 0, life: ember ? 0.9 + Math.random() * 0.9 : 0.6 + Math.random() * 0.6,
-          r: ember ? 0.9 + Math.random() * 1.3 : 6 + Math.random() * 8, ph: Math.random() * 6.283, ember,
+          x, y, vx: (Math.random() - 0.5) * 5,
+          vy: ember ? -(30 + Math.random() * 30) : -(12 + Math.random() * 16),
+          age: 0, life: ember ? 1 + Math.random() * 0.8 : 0.8 + Math.random() * 0.7,
+          r: ember ? 0.8 + Math.random() * 0.6 : 3.5 + Math.random() * 3.5, ph: Math.random() * 6.283, ember,
         });
       };
 
@@ -199,8 +190,8 @@
         if (!running) return;
         const dt = Math.min((now - last) / 1000, 0.05);
         last = now;
-        acc += dt * (box.w + box.h * 2) * 0.34;
-        while (acc >= 1) { if (parts.length < 150) spawn(); acc -= 1; }
+        acc += dt * box.w * 0.075;
+        while (acc >= 1) { if (parts.length < 36) spawn(); acc -= 1; }
         ctx.clearRect(0, 0, W, H);
         ctx.globalCompositeOperation = 'lighter';
         for (let i = parts.length - 1; i >= 0; i--) {
@@ -208,24 +199,24 @@
           q.age += dt;
           const t = q.age / q.life;
           if (t >= 1) { parts.splice(i, 1); continue; }
-          q.x += (q.vx + Math.sin(now / 240 + q.ph) * 9) * dt;
+          q.x += (q.vx + Math.sin(now / 520 + q.ph) * 4) * dt;
           q.y += q.vy * dt;
           // fade near the canvas edges so nothing is cut off
           const edge = Math.max(0, Math.min(1, q.y / 34, q.x / 24, (W - q.x) / 24));
-          const a = (1 - t) * edge;
+          const a = Math.pow(1 - t, 1.4) * edge * 0.7;
           if (q.ember) {
             ctx.fillStyle = `rgba(255, 214, 110, ${a * (0.5 + 0.5 * Math.sin(now / 70 + q.ph))})`;
             ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.283); ctx.fill();
             continue;
           }
-          const r = q.r * (1 - t * 0.7);
+          const r = q.r * (1 - t * 0.85);
           const g = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
-          g.addColorStop(0, `rgba(255, 248, 214, ${0.9 * a})`);
-          g.addColorStop(0.35, `rgba(255, 206, 72, ${0.72 * a})`);
-          g.addColorStop(0.7, `rgba(255, 128, 24, ${0.36 * a})`);
+          g.addColorStop(0, `rgba(255, 240, 200, ${0.7 * a})`);
+          g.addColorStop(0.35, `rgba(255, 196, 80, ${0.5 * a})`);
+          g.addColorStop(0.7, `rgba(240, 130, 40, ${0.22 * a})`);
           g.addColorStop(1, 'rgba(255, 90, 10, 0)');
           ctx.save();
-          ctx.translate(q.x, q.y); ctx.scale(1, 1.7);
+          ctx.translate(q.x, q.y); ctx.scale(0.8, 1.9);
           ctx.fillStyle = g;
           ctx.beginPath(); ctx.arc(0, 0, r, 0, 6.283); ctx.fill();
           ctx.restore();
