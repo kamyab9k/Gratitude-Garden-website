@@ -74,6 +74,20 @@ const server = http.createServer((req, res) => {
       return send(res, 404, { "Content-Type": "text/plain" }, "Not found");
     }
     const ext = path.extname(filePath).toLowerCase();
+    // LinkedIn/WhatsApp/etc. need absolute URLs in the share-preview tags,
+    // so fill them in from the host this request came in on.
+    if (ext === ".html") {
+      const host = String(req.headers["x-forwarded-host"] || req.headers.host || "")
+        .split(",")[0].trim();
+      if (/^[a-z0-9.-]+(:\d+)?$/i.test(host)) {
+        const proto = String(req.headers["x-forwarded-proto"] || "https").split(",")[0].trim() === "http" ? "http" : "https";
+        const base = `${proto}://${host}`;
+        data = Buffer.from(
+          data.toString("utf8").replace(/__SITE__/g, base),
+          "utf8"
+        );
+      }
+    }
     send(
       res,
       200,
