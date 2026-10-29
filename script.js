@@ -421,25 +421,6 @@
     });
     }
 
-    /* waitlist marquee reacts to scroll speed */
-    const marquee = $('[data-marquee]');
-    const loop = gsap.to(marquee, { xPercent: -50, duration: 40, ease: 'none', repeat: -1 });
-    ScrollTrigger.create({
-      trigger: '.waitlist', start: 'top bottom', end: 'bottom top',
-      onUpdate: (self) => {
-        const v = self.getVelocity();
-        gsap.to(loop, { timeScale: (v < 0 ? -1 : 1) * (1 + Math.min(Math.abs(v) / 250, 8)), duration: 0.2, overwrite: true });
-        gsap.to(loop, { timeScale: v < 0 ? -1 : 1, duration: 1.2, delay: 0.2, overwrite: false });
-      },
-    });
-    if (scenes) $$('.waitlist-flower').forEach((f, i) => {
-      gsap.fromTo(f, { y: 160 + i * 40, rotate: i % 2 ? 25 : -25 }, {
-        y: -120 - i * 30, rotate: i % 2 ? -10 : 10, ease: 'none',
-        scrollTrigger: { trigger: '.waitlist', start: 'top bottom', end: 'bottom top', scrub: true },
-      });
-    });
-    gsap.from('.waitlist-inner > :not(.btn)', { y: 50, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: 0.1, scrollTrigger: { trigger: '.waitlist-inner', start: 'top 82%' } });
-
     /* maker portrait parallax + entrance */
     if (scenes) gsap.fromTo('[data-maker-photo] img', { yPercent: -2.5 }, { yPercent: 2.5, ease: 'none', scrollTrigger: { trigger: '.maker', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.from('[data-maker-photo]', { clipPath: 'inset(30% 20% 30% 20% round 28px)', duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: '.maker', start: 'top 75%' } });
